@@ -1,0 +1,113 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\JAS.bundle.scp.css",
+      "PackagePath": "staticwebassets\\JAS.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\Baustelle.jpg",
+      "PackagePath": "staticwebassets\\content\\Baustelle.jpg"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\placeholderlogo.png",
+      "PackagePath": "staticwebassets\\content\\placeholderlogo.png"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\css\\input.css",
+      "PackagePath": "staticwebassets\\css\\input.css"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\flowbite\\flowbite.min.css",
+      "PackagePath": "staticwebassets\\lib\\flowbite\\flowbite.min.css"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\flowbite\\flowbite.min.js",
+      "PackagePath": "staticwebassets\\lib\\flowbite\\flowbite.min.js"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\flowbite\\flowbite.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\flowbite\\flowbite.min.js.map"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.JAS.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.JAS.props",
+      "PackagePath": "build\\JAS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.JAS.props",
+      "PackagePath": "buildMultiTargeting\\JAS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.JAS.props",
+      "PackagePath": "buildTransitive\\JAS.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

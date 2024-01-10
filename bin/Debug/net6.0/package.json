@@ -1,0 +1,26 @@
+{
+  "name": "JAS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "css:build": "npx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/css/styles.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlorentShabani/JAS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FlorentShabani/JAS/issues"
+  },
+  "homepage": "https://github.com/FlorentShabani/JAS#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  },
+  "description": "",
+  "dependencies": {
+    "flowbite": "^2.2.1"
+  }
+}
