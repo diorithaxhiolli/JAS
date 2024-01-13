@@ -30,3 +30,31 @@ D:\Schule\Semestri 5\Dizajn Softueri\Dorezime\4\main\JAS\obj\Debug\net6.0\JAS.ge
 D:\Schule\Semestri 5\Dizajn Softueri\Dorezime\4\main\JAS\obj\Debug\net6.0\ref\JAS.dll
 D:\Schule\Semestri 5\Dizajn Softueri\Dorezime\4\main\JAS\bin\Debug\net6.0\package-lock.json
 D:\Schule\Semestri 5\Dizajn Softueri\Dorezime\4\main\JAS\bin\Debug\net6.0\package.json
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\bin\Debug\net6.0\appsettings.json
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\bin\Debug\net6.0\package-lock.json
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\bin\Debug\net6.0\package.json
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\bin\Debug\net6.0\JAS.staticwebassets.runtime.json
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\bin\Debug\net6.0\JAS.exe
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\bin\Debug\net6.0\JAS.deps.json
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\bin\Debug\net6.0\JAS.runtimeconfig.json
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\bin\Debug\net6.0\JAS.dll
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\bin\Debug\net6.0\JAS.pdb
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\JAS.csproj.AssemblyReference.cache
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\JAS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\JAS.AssemblyInfoInputs.cache
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\JAS.AssemblyInfo.cs
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\JAS.csproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\JAS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\JAS.RazorAssemblyInfo.cache
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\JAS.RazorAssemblyInfo.cs
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\scopedcss\bundle\JAS.styles.css
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\scopedcss\projectbundle\JAS.bundle.scp.css
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\JAS.dll
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\refint\JAS.dll
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\JAS.pdb
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\JAS.genruntimeconfig.cache
+C:\Users\Admin\OneDrive\Desktop\Projekt\JAS\obj\Debug\net6.0\ref\JAS.dll

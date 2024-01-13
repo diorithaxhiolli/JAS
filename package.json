@@ -1,5 +1,5 @@
 {
-  "name": "JAS",
+  "name": "jas",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -19,8 +19,8 @@
   "devDependencies": {
     "tailwindcss": "^3.4.1"
   },
-  "description": "",
   "dependencies": {
     "flowbite": "^2.2.1"
-  }
+  },
+  "description": ""
 }
