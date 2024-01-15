@@ -4,28 +4,28 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<div class="container mx-auto p-4 flex flex-col items-center">
-    <h2 class="text-2xl font-semibold mb-4">Login</h2>
-    <form class="bg-gray-200 p-6 rounded">
-        <div class="mb-4">
-            <label for="email" class="block text-gray-700 font-medium mb-2">Email:</label>
-            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500" required />
+<div class="container mx-auto p-4 flex flex-col items-center bg-background text-textcolor dark:bg-darkbackground dark:text-darktextcolor">
+    <h2 class="text-2xl font-semibold mb-4 dark:text-white">Login</h2>
+    <form class="bg-gray-200 dark:bg-gray-700 p-6 rounded">
+        <div class="mb-4 text-textcolor dark:text-white">
+            <label for="email" class="block font-medium mb-2">Email:</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500 text-black" required />
+        </div>
+        <div class="mb-4 text-textcolor dark:text-white">
+            <label for="password" class="block font-medium mb-2">Password:</label>
+            <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500 text-black" required />
         </div>
         <div class="mb-4">
-            <label for="password" class="block text-gray-700 font-medium mb-2">Password:</label>
-            <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500" required />
-        </div>
-        <div class="mb-4">
-            <label for="rememberMe" class="flex items-center">
+            <label for="rememberMe" class="flex items-center text-textcolor dark:text-white">
                 <input type="checkbox" id="rememberMe" name="rememberMe" class="mr-2" />
-                <span class="text-gray-700">Remember me</span>
+                <span>Remember me</span>
             </label>
         </div>
-        <div class="flex justify-center">
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Login</button>
-        </div>
-        <div class="mt-4 text-gray-700 flex justify-center"> 
-            <a asp-controller="Account" asp-action="Register" class="text-blue-500 hover:underline">Don't have an account? </a>
+        <div class="flex justify-center flex-col items-center">
+            <button type="submit" class="bg-primary text-white px-4 py-2 rounded hover:bg-blue-700 dark:bg-darkprimary dark:hover:bg-darkaccent dark:focus:ring-darkaccent mt-2">Login</button>
+            <div class="mt-4 text-textcolor dark:text-white">
+                <a asp-controller="Account" asp-action="Register" class="hover:underline">Don't have an account?</a>
+            </div>
         </div>
     </form>
 </div>
