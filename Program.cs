@@ -1,7 +1,17 @@
+using JAS.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//DB Connection
+builder.Services.AddDbContext<JASContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("JAS")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<JASContext>();
 
 var app = builder.Build();
 
@@ -17,6 +27,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();;
+
+app.MapRazorPages();
 
 app.UseAuthorization();
 
