@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/FlorentShabani/JAS#readme",
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "tailwindcss": "^3.4.1"
   },
   "dependencies": {

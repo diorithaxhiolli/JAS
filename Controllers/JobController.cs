@@ -8,11 +8,11 @@ namespace JAS.Controllers
         {
             return View();
         }
-    
+
         public IActionResult JobCreation()
         {
             return View();
         }
-    
+
     }
 }

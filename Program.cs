@@ -1,6 +1,5 @@
-using JAS.Data;
+using JAS.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +9,7 @@ builder.Services.AddControllersWithViews();
 //DB Connection
 builder.Services.AddDbContext<JASContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("JAS")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<JASUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<JASContext>();
 
 var app = builder.Build();
@@ -23,15 +22,16 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();;
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

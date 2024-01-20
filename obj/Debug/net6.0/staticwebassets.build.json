@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tzEcRO8M/obDdjGpvctQk/l6Z3FJZo2eRdA7I+v0JHU=",
+  "Hash": "7qpUlex2EVA8HrbcFaghxDVegm+s2N1BBrtlQwHbEW4=",
   "Source": "JAS",
   "BasePath": "_content/JAS",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\content\\placeholderlogo.png"
+    },
+    {
+      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\profile-picture.jpg",
+      "SourceId": "JAS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\",
+      "BasePath": "_content/JAS",
+      "RelativePath": "content/profile-picture.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\content\\profile-picture.jpg"
     },
     {
       "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\css\\input.css",

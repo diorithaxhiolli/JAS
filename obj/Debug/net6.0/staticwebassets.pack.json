@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\content\\placeholderlogo.png"
     },
     {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\profile-picture.jpg",
+      "PackagePath": "staticwebassets\\content\\profile-picture.jpg"
+    },
+    {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\css\\input.css",
       "PackagePath": "staticwebassets\\css\\input.css"
     },
