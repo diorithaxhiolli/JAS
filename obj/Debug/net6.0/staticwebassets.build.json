@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7qpUlex2EVA8HrbcFaghxDVegm+s2N1BBrtlQwHbEW4=",
+  "Hash": "NIUhJEmlm+Es9/PnHD77/xV0bQeKaRcIZBFJqPD/O7w=",
   "Source": "JAS",
   "BasePath": "_content/JAS",
   "Mode": "Default",
@@ -1071,6 +1071,23 @@
       "OriginalItemSpec": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\JAS.bundle.scp.css"
     },
     {
+      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\4689.jpg",
+      "SourceId": "JAS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\",
+      "BasePath": "_content/JAS",
+      "RelativePath": "content/4689.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\content\\4689.jpg"
+    },
+    {
       "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\Baustelle.jpg",
       "SourceId": "JAS",
       "SourceType": "Discovered",
@@ -1086,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\content\\Baustelle.jpg"
+    },
+    {
+      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\logo.png",
+      "SourceId": "JAS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\",
+      "BasePath": "_content/JAS",
+      "RelativePath": "content/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\content\\logo.png"
     },
     {
       "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\placeholderlogo.png",
@@ -1120,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\content\\profile-picture.jpg"
+    },
+    {
+      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\success.json",
+      "SourceId": "JAS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\",
+      "BasePath": "_content/JAS",
+      "RelativePath": "content/success.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\content\\success.json"
     },
     {
       "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\css\\input.css",
@@ -1190,6 +1241,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\js\\scrollSticky.js",
+      "SourceId": "JAS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\",
+      "BasePath": "_content/JAS",
+      "RelativePath": "js/scrollSticky.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\scrollSticky.js"
+    },
+    {
       "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\js\\site.js",
       "SourceId": "JAS",
       "SourceType": "Discovered",
@@ -1205,6 +1273,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\js\\success.js",
+      "SourceId": "JAS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\",
+      "BasePath": "_content/JAS",
+      "RelativePath": "js/success.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\success.js"
     },
     {
       "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\flowbite\\flowbite.min.css",

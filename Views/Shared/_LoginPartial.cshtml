@@ -12,40 +12,34 @@
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-        <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+        <button type="button" class="flex text-sm rounded-full md:me-0" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
             <span class="sr-only">Open user menu</span>
-            <img class="w-8 h-8 rounded-full" src="~/content/profile-picture.jpg" alt="user photo">
+            <img class="focus:ring-4 focus:ring-gray-300 shadow shadow-purple-500/50 dark:shadow dark:shadow-purple-800/80 hover:shadow-md hover:dark:shadow-md hover:shadow-purple-500/50 hover:dark:shadow-purple-800/80 dark:focus:ring-gray-600 border border-purple-500 dark:border-2 dark:border-purple-300 w-10 h-10 rounded-full" src="~/content/profile-picture.jpg" alt="user photo">
+            <svg class="w-3 h-3 ms-2.5 my-auto dark:text-darktextcolor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+            </svg>
         </button>
         <!-- Dropdown menu -->
-        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+        <div class="z-50 hidden my-4 text-base list-none border border-accent bg-background divide-y divide-gray-100 rounded-lg shadow dark:shadow shadow-purple-500/50 dark:shadow-purple-800/80 dark:bg-gray-800 dark:divide-gray-600" id="user-dropdown">
             <div class="px-4 py-3">
-                <span class="block text-sm text-gray-900 dark:text-white">@firstName @lastName</span>
+                <span class="block text-sm text-textcolor dark:text-white">@firstName @lastName</span>
                 <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">@UserManager.GetUserName(User)</span>
             </div>
             <ul class="py-2" aria-labelledby="user-menu-button">
                 <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                    <a class="block px-4 py-2 text-sm text-textcolor dark:text-darktextcolor hover:text-accent hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-accent">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                    <a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"
+                       class="block px-4 py-2 text-sm text-textcolor dark:text-darktextcolor hover:text-accent hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-accent">Settings</a>
                 </li>
-                <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                </li>
-                <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                <li class="hover:bg-gray-200 dark:hover:bg-gray-700 ">
+                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button id="logout" type="submit" class="block px-4 py-2 text-sm hover:text-accent text-textcolor dark:text-darktextcolor dark:hover:text-accent">Log out</button>
+                    </form>
                 </li>
             </ul>
         </div>
-
-    <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-    </li>
-    <li class="nav-item">
-        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
 }
 else
 {
@@ -54,7 +48,7 @@ else
         </a>
 
         <a id="login" asp-area="Identity" asp-page="/Account/Login">
-            <button type="button" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><i class="fa-solid fa-right-to-bracket text-darktextcolor" style="margin-right: 5px;"></i>Login</button>
+            <button type="button" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><i class="fa-solid fa-right-to-bracket text-darktextcolor" style="margin-right: 5px;"></i>Log in</button>
         </a>
 }
 </ul>

@@ -5,50 +5,59 @@
     ViewData["Title"] = "Log in";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h2>Use a local account to log in.</h2>
-                <hr />
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-floating">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                    <label asp-for="Input.Email" class="form-label"></label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var sectionToScroll = document.getElementById("loginSec");
+
+        if (sectionToScroll) {
+            sectionToScroll.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+</script>
+
+<section id="loginSec">
+    <div class="flex flex-col mx-auto flex items-center justify-center px-6 py-8 md:inset-0 md:h-screen lg:py-0">
+        <div class="bg-backgroundc-100 w-full border-2 border-purple-500 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/50 dark:hover:shadow-xl dark:shadow-purple-800/80 dark:hover:shadow-purple-800/80 rounded-lg shadow px-5 dark:border-2 dark:border-purple-500 md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="space-y-3 md:space-y-6 sm:p-8">
+                <div class="flex justify-center items-center">
+                    <img class="h-14" src="~/content/logo.png">
+                    <h1 class="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                        Log in
+                    </h1>
                 </div>
-                <div class="form-floating">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
-                    <label asp-for="Input.Password" class="form-label"></label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div>
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe" class="form-label">
-                            <input class="form-check-input" asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
+                <hr class="my-5 sm:mx-auto border-primary dark:border-darkprimary" />
+                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="space-y-4 md:space-y-5 p-1">
+                    <div asp-validation-summary="ModelOnly" class="text-red-500"></div>
+                    <div class="relative">
+                        <input asp-for="Input.Email" type="text" id="floating_filled" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer" placeholder=" " />
+                        <label asp-for="Input.Email" class="absolute text-sm text-textcolor dark:text-darktextcolor duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Email</label>
+                        <span asp-validation-for="Input.Email" class="text-sm text-red-500"></span>
                     </div>
-                </div>
-                <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-                </div>
-                <div>
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
-                </div>
-            </form>
-        </section>
+
+                    <div class="relative">
+                        <input asp-for="Input.Password" type="password" id="floating_filled" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer" placeholder=" " />
+                        <label asp-for="Input.Password" class="absolute text-sm text-textcolor dark:text-darktextcolor duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Password</label>
+                        <span asp-validation-for="Input.Password" class="text-sm text-red-500"></span>
+                    </div>
+
+                    <div class="checkbox flex items-center me-4">
+                        <input asp-for="Input.RememberMe" id="purple-checkbox" type="checkbox" class="form-check-input w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label asp-for="Input.RememberMe" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"></label>
+                    </div>
+
+                    <div class="">
+                        <button id="registerSubmit" type="submit" class="w-full text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><i class="fa-solid fa-right-to-bracket text-darktextcolor" style="margin-right: 5px;"></i>Log in</button>
+                    </div>
+                    <div>
+                        <p class="text-sm font-light text-textcolor dark:text-gray-400 text-center mt-4">
+                            Register as a <a asp-area="Identity" asp-page="/Account/Register" asp-route-returnUrl="@Model.ReturnUrl" class="font-medium text-blue-500 hover:underline dark:text-blue-500">new user</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
 
 @section Scripts {

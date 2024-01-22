@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\JAS.bundle.scp.css"
     },
     {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\4689.jpg",
+      "PackagePath": "staticwebassets\\content\\4689.jpg"
+    },
+    {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\Baustelle.jpg",
       "PackagePath": "staticwebassets\\content\\Baustelle.jpg"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\logo.png",
+      "PackagePath": "staticwebassets\\content\\logo.png"
     },
     {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\placeholderlogo.png",
@@ -15,6 +23,10 @@
     {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\profile-picture.jpg",
       "PackagePath": "staticwebassets\\content\\profile-picture.jpg"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\success.json",
+      "PackagePath": "staticwebassets\\content\\success.json"
     },
     {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\css\\input.css",
@@ -33,8 +45,16 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\js\\scrollSticky.js",
+      "PackagePath": "staticwebassets\\js\\scrollSticky.js"
+    },
+    {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\js\\success.js",
+      "PackagePath": "staticwebassets\\js\\success.js"
     },
     {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\lib\\flowbite\\flowbite.min.css",

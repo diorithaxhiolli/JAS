@@ -3,3 +3,8 @@
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+
+
+.body-padding {
+    padding-top: 0;
+}
