@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NIUhJEmlm+Es9/PnHD77/xV0bQeKaRcIZBFJqPD/O7w=",
+  "Hash": "RQDTEv97n+GM/vrW+dswVAC+8dz38kF3Vi8fvSEZp4c=",
   "Source": "JAS",
   "BasePath": "_content/JAS",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\content\\Baustelle.jpg"
     },
     {
+      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\jobseeker.png",
+      "SourceId": "JAS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\",
+      "BasePath": "_content/JAS",
+      "RelativePath": "content/jobseeker.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\content\\jobseeker.png"
+    },
+    {
       "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\logo.png",
       "SourceId": "JAS",
       "SourceType": "Discovered",
@@ -1154,6 +1171,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\content\\profile-picture.jpg"
+    },
+    {
+      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\recruiter.png",
+      "SourceId": "JAS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\",
+      "BasePath": "_content/JAS",
+      "RelativePath": "content/recruiter.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\content\\recruiter.png"
     },
     {
       "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\success.json",

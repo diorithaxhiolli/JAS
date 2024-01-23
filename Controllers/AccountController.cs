@@ -23,6 +23,12 @@ namespace JAS.Controllers
             return View();
         }
 
+        public IActionResult AccountType(Guid userId)
+        {
+            ViewData["Title"] = "Account Type";
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -134,9 +134,10 @@ namespace JAS.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    var accountTypeUserId = user.Id;
                     _logger.LogInformation("User created a new account with password.");
 
-                    return Partial("_ModalSuccessRegister");
+                    return RedirectToAction("AccountType", "Account", new { userId = accountTypeUserId });
 
                     /*var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

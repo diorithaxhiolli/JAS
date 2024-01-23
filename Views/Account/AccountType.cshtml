@@ -1,0 +1,60 @@
+﻿@page
+@model JAS.Views.Account.AccountTypeModel
+@{
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var sectionToScroll = document.getElementById("accTypeSec");
+
+        if (sectionToScroll) {
+            sectionToScroll.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+</script>
+
+<section id="accTypeSec">
+
+    <div class="size-2/3 flex justify-center items-center mx-auto my-auto mt-auto gap-x-5 h-dvh">
+        <div class="flex flex-row items-center justify-between">
+            <div class="transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-300 hover:shadow-2xl hover:shadow-purple-500/50 hover:dark:shadow-lg hover:dark:shadow-purple-800/80
+            max-w-sm bg-white border-2 border-primary shadow-lg shadow-purple-500/50 rounded-lg dark:shadow-lg dark:shadow-purple-800/80 dark:border-darkprimary dark:bg-gray-800">
+                <a href="#">
+                    <img class="rounded-t-lg" src="~/content/jobseeker.png" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-textcolor dark:text-darktextcolor text-center">Job Seeker</h5>
+                    </a>
+                    <p class="mb-3 text-center font-normal text-gray-700 dark:text-gray-400">
+                        Discover Your Next <span class="text-accent font-bold">Opportunity.</span>
+                        Take the Next Step in Your <span class="text-accent font-bold">Career</span> Journey.
+                    </p>
+                </div>
+            </div>
+
+            <div class="inline-flex items-center justify-center">
+                <hr class="w-48 h-px my-8 bg-primary dark:bg-darkprimary shadow shadow-purple-500/50 dark:shadow dark:shadow-purple-800/80 border-0 rotate-90">
+                <span class="absolute px-3 font-medium text-textcolor dark:text-darktextcolor -translate-x-1/2 bg-backgroundc-300 dark:bg-darkbackground left-1/2">or</span>
+            </div>
+
+            <div class="transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-300 hover:shadow-2xl hover:shadow-purple-500/50 hover:dark:shadow-lg hover:dark:shadow-purple-800/80
+            max-w-sm bg-white border-2 border-primary shadow-lg shadow-purple-500/50 rounded-lg dark:shadow-lg dark:shadow-purple-800/80 dark:border-darkprimary dark:bg-gray-800">
+                <a href="#">
+                    <img class="rounded-t-lg" src="~/content/recruiter.png" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-textcolor dark:text-darktextcolor text-center">Recruiter</h5>
+                    </a>
+                    <p class="mb-3 text-center font-normal text-gray-700 dark:text-gray-400">
+                        Connect with <span class="text-accent font-bold">Talent</span>,
+                        Build Your <span class="text-accent font-bold">Team.</span> Find the Perfect Match for Your <span class="text-accent font-bold">Company.</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
