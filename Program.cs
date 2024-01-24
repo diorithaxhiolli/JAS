@@ -1,5 +1,11 @@
-using JAS.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using JAS.Models;
+using JAS.Areas.Identity.Data;
+using JAS.Controllers;
+using System.Drawing.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +15,12 @@ builder.Services.AddControllersWithViews();
 //DB Connection
 builder.Services.AddDbContext<JASContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("JAS")));
 
-builder.Services.AddDefaultIdentity<JASUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<JASUser>()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<JASContext>();
+
+builder.Services.AddScoped<IRoleStore<IdentityRole>, RoleStore<IdentityRole, JASContext>>();
+builder.Services.AddScoped<UserManager<JASUser>>();
 
 var app = builder.Build();
 

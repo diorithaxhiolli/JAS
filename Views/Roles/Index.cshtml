@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model JAS.Models.Domain.CompositeModel.RolesComposite;
+@{
+    ViewData["Title"] = "View Roles";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+
+    var role = Model.Role;
+}
+
+
+<button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
+                                                                                block mx-5 text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+    <i class="fa-solid fa-plus mr-2"></i>Create Roles
+</button>
+
+<div class="relative overflow-x-auto rounded-t-lg mt-5 mx-5
+            border-2 border-purple-500 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/50 dark:hover:shadow-xl dark:shadow-purple-800/80 dark:hover:shadow-purple-800/80
+            dark:border-2 dark:border-purple-800">
+    <table class="w-full text-sm text-left rtl:text-right text-textcolor dark:text-darktextcolor">
+        <thead class="text-xs text-white dark:text-darktextcolor uppercase bg-purple-500 dark:bg-purple-800">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    #ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var roles in Model.Roles)
+            {
+                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 odd:hover:bg-gray-100 even:hover:bg-gray-200 border-b dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @roles.Id
+                    </th>
+                    <td class="px-6 py-4">
+                        @roles.Name
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="@Url.Action("ViewRoles", "Roles", new { rolesId = roles.Id })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            <i class="fa-solid fa-pen-to-square mr-1"></i> Edit
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50
+                                                                justify-center mx-auto my-auto items-center w-1/2 md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 border-2 border-purple-500 dark:border-purple-800">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                    Create New Role
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <form asp-action="AddRoles" class="p-4 md:p-5">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                        <label asp-for="@role.Name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                        <input asp-for="@role.Name" type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required="">
+                    </div>
+                </div>
+                <button type="submit" class="w-full transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
+                            bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300
+                            dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
+                            font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white dark:text-darktextcolor">
+                    <i class="fa-solid fa-plus mr-2"></i>Add new role
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

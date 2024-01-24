@@ -1,8 +1,10 @@
 ﻿using JAS.Areas.Identity.Data;
+using JAS.Models.Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using JAS.Models.Domain;
 
 namespace JAS.Areas.Identity.Data
 {
@@ -15,6 +17,10 @@ namespace JAS.Areas.Identity.Data
         {
             Configuration = configuration;
         }
+
+        public DbSet<Company> Company { get; set; }
+
+        public DbSet<JobSeeker> JobSeeker { get; set; }
 
         public DbSet<JASUser> JASUser { get; set; }
 
@@ -40,9 +46,14 @@ namespace JAS.Areas.Identity.Data
             modelBuilder.Entity<IdentityUser>()
                 .HasKey(u => u.Id);
 
+            modelBuilder.Entity<Company>()
+               .HasKey(u => u.companyId);
+
+            modelBuilder.Entity<JobSeeker>()
+               .HasKey(u => u.jobSeekerId);
+
             modelBuilder.Entity<JASUser>(entity =>
             {
-                // Additional configurations for JASUser
                 entity.Property(u => u.firstName).IsRequired();
                 entity.Property(u => u.lastName).IsRequired();
             });
