@@ -6,7 +6,7 @@ namespace JAS.Models.Domain
 {
     public class Company
     {
-        [Key, ForeignKey("User")]
+        [Key]
         public string companyId { get; set; }
 
         [Required]
@@ -17,6 +17,11 @@ namespace JAS.Models.Domain
         [StringLength(1500)]
         public string description { get; set; }
 
+        [ForeignKey(nameof(companyId))]
         public virtual JASUser User { get; set; }
+
+        public virtual ICollection<JobListing> JobListing { get; set; }
+
+        public virtual ICollection<City> City { get; set; }
     }
 }

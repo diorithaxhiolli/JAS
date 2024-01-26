@@ -24,6 +24,32 @@ namespace JAS.Areas.Identity.Data
 
         public DbSet<JASUser> JASUser { get; set; }
 
+        public DbSet<Application> Application { get; set; }
+
+        public DbSet<City> City { get; set; }
+
+        public DbSet<Country> Country { get; set; }
+
+        public DbSet<CoverLetter> CoverLetter { get; set; }
+
+        public DbSet<CV> CV { get; set; }
+
+        public DbSet<Education> Education { get; set; }
+
+        public DbSet<Experience> Experience { get; set; }
+
+        public DbSet<JobCategory> JobCategory { get; set; }
+
+        public DbSet<JobListing> JobListing { get; set; }
+
+        public DbSet<JobSkill> JobSkill { get; set; }
+
+        public DbSet<Proficiency> Proficiency { get; set; }
+
+        public DbSet<RequiredSkills> RequiredSkills { get; set; }
+
+        public DbSet<Status> Status { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -51,6 +77,45 @@ namespace JAS.Areas.Identity.Data
 
             modelBuilder.Entity<JobSeeker>()
                .HasKey(u => u.jobSeekerId);
+
+            modelBuilder.Entity<Application>()
+               .HasKey(u => u.applicationId);
+
+            modelBuilder.Entity<City>()
+               .HasKey(u => u.cityId);
+
+            modelBuilder.Entity<Country>()
+               .HasKey(u => u.countryId);
+
+            modelBuilder.Entity<CoverLetter>()
+               .HasKey(u => u.coverLetterId);
+
+            modelBuilder.Entity<CV>()
+               .HasKey(u => u.cvId);
+
+            modelBuilder.Entity<Education>()
+               .HasKey(u => u.educationId);
+
+            modelBuilder.Entity<Experience>()
+               .HasKey(u => u.experienceId);
+
+            modelBuilder.Entity<JobCategory>()
+               .HasKey(u => u.categoryId);
+
+            modelBuilder.Entity<JobListing>()
+               .HasKey(u => u.positionId);
+
+            modelBuilder.Entity<JobSkill>()
+               .HasKey(u => u.skillId);
+
+            modelBuilder.Entity<Proficiency>()
+               .HasKey(u => u.proficiencyId);
+
+            modelBuilder.Entity<RequiredSkills>()
+               .HasKey(u => u.requiredSkillsId);
+
+            modelBuilder.Entity<Status>()
+               .HasKey(u => u.statusId);
 
             modelBuilder.Entity<JASUser>(entity =>
             {

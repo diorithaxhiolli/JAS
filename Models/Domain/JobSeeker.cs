@@ -10,5 +10,9 @@ namespace JAS.Models.Domain
         public string jobSeekerId { get; set; }
 
         public virtual JASUser User { get; set; }
+
+        public virtual ICollection<Application> Application { get; set; }
+
+        public virtual ICollection<CV> CV { get; set; }
     }
 }
