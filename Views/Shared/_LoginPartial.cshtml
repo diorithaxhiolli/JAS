@@ -27,7 +27,8 @@
             </div>
             <ul class="py-2" aria-labelledby="user-menu-button">
                 <li>
-                    <a class="block px-4 py-2 text-sm text-textcolor dark:text-darktextcolor hover:text-accent hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-accent">Dashboard</a>
+                    <a asp-action="Control" asp-controller="Dashboard"
+                        class="block px-4 py-2 text-sm text-textcolor dark:text-darktextcolor hover:text-accent hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-accent">Dashboard</a>
                 </li>
                 <li>
                     <a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"

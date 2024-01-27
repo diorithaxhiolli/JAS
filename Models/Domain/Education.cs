@@ -22,7 +22,7 @@ namespace JAS.Models.Domain
         public string field { get; set; }
 
         [Required]
-        public DateTime graduationDate { get; set; }
+        public string graduationDate { get; set; }
 
         [Required]
         public int cvId { get; set; }

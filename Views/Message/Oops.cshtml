@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "404";
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var sectionToScroll = document.getElementById("scrollSection");
+
+        if (sectionToScroll) {
+            sectionToScroll.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+</script>
+
+<section id="scrollSection">
+    <div class="mx-auto my-auto">
+        <div class="lg:px-24 h-screen lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
+            <div class="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
+                <div class="relative">
+                    <div class="">
+                        <div>
+                            <h1 class="font-bold text-9xl dark:text-darktextcolor text-textcolor">404</h1>
+                        </div>
+                        <div class="">
+                            <h1 class="my-2 font-bold text-2xl text-primary dark:text-darkprimary">
+                                Looks like you've found the
+                                doorway to the great nothing
+                            </h1>
+                            <p class="my-2 text-primary dark:text-darkprimary">Sorry about that! Please visit our hompage to get where you need to go.</p>
+                            <button class="text-white transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" ">Take me there!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+            </div>
+        </div>
+    </div>
+</section>

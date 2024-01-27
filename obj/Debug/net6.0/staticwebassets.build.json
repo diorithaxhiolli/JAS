@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RQDTEv97n+GM/vrW+dswVAC+8dz38kF3Vi8fvSEZp4c=",
+  "Hash": "Z5C7qjOlGGjAFcWfIPB90AL+CLvSMNTN9ZCxqn2Dex4=",
   "Source": "JAS",
   "BasePath": "_content/JAS",
   "Mode": "Default",
@@ -1579,6 +1579,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\04664e30-3c4d-47af-bdc3-25de12ad57e5.pdf",
+      "SourceId": "JAS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\",
+      "BasePath": "_content/JAS",
+      "RelativePath": "uploads/04664e30-3c4d-47af-bdc3-25de12ad57e5.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\04664e30-3c4d-47af-bdc3-25de12ad57e5.pdf"
     }
   ]
 }

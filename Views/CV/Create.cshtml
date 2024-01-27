@@ -1,0 +1,101 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using JAS.Models.Domain.CompositeModel
+@model CVComposite;
+@{
+    ViewData["Title"] = "View Role";
+    Layout = "~/Views/Shared/_LayoutJobSeeker.cshtml";
+}
+
+<div class="flex justify-center items-center h-screen">
+    <div class="mx-auto my-auto p-4 w-full max-w-2xl h-screen lg:h-auto">
+        <!-- Modal content -->
+        <div class="bg-white rounded-lg shadow dark:bg-gray-700 border-2 border-purple-500 dark:border-purple-800">
+            <!-- Modal header -->
+            <div class="items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="justify-center items-center text-lg text-center font-semibold text-gray-900 dark:text-white">
+                    Create CV
+                </h3>
+            </div>
+            <div class="flex items-center justify-between p-4 md:px-5 md:py-2 rounded-t dark:border-gray-600">
+                <h3 class="justify-center items-center text-lg text-center font-semibold text-gray-900 dark:text-white">
+                    General Info
+                </h3>
+            </div>
+            <!-- Modal body -->
+            <form asp-action="AddCVOnPost" class="p-4 md:p-5" enctype="multipart/form-data">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                        <label asp-for="@Model.CV.name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                        <input asp-for="@Model.CV.name" maxlength="100" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type CV name" required="">
+                    </div>
+                    <div class="col-span-2">
+                        <label asp-for="@Model.CV.summary" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Summary</label>
+                        <textarea asp-for="@Model.CV.summary" maxlength="1000" id="description" rows="5" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write a summary..." required></textarea>
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+                        <input asp-for="@Model.CV.filePath" name="filePath" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PDF only.</p>
+                    </div>
+
+
+
+                    <div class="col-span-2">
+                        <div class="flex items-center justify-between w-full border-t md:py-2 rounded-t dark:border-gray-600">
+                            <h3 class="justify-center items-center text-lg text-center font-semibold text-gray-900 dark:text-white">
+                                Education
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Institution</label>
+                        <input asp-for="@Model.Education.institution" maxlength="100" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type institution name" required="">
+                    </div>
+
+                    <div class="col-span-1">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Degree</label>
+                        <input asp-for="@Model.Education.degree" maxlength="100" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type degree name" required="">
+                    </div>
+
+                    <div class="col-span-1">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Field</label>
+                        <input asp-for="@Model.Education.field" maxlength="100" type="text"  id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type field name" required="">
+                    </div>
+
+                    <div class="col-span-1 max-w-sm inset-y-0">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Graduation Date</label>
+                        <input asp-for="@Model.Education.graduationDate" readonly datepicker datapicker-autohide autocomplete="off" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type date" required="">
+                    </div>
+
+                    <div class="col-span-2">
+                        <div class="flex items-center justify-between w-full border-t md:py-2 rounded-t dark:border-gray-600">
+                            <h3 class="justify-center items-center text-lg text-center font-semibold text-gray-900 dark:text-white">
+                                Experience
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="col-span-2">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                        <input asp-for="@Model.Experience.title" maxlength="100" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type experience name" required="">
+                    </div>
+
+                    <div class="col-span-2">
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                        <textarea asp-for="@Model.Experience.description" maxlength="1500" id="description" rows="5" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write a description..." required></textarea>
+                    </div>
+
+                </div>
+                <button type="submit" class="w-full transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
+                            bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300
+                            dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
+                            font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white dark:text-darktextcolor">
+                    <i class="fa-solid fa-plus mr-2"></i>Add new CV
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/datepicker.min.js"></script>

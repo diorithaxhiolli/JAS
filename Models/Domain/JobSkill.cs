@@ -13,7 +13,5 @@ namespace JAS.Models.Domain
         public int skillName { get; set; }
 
         public virtual ICollection<RequiredSkills> RequiredSkills { get; set; }
-
-        public virtual ICollection<CV> CV { get; set; }
     }
 }

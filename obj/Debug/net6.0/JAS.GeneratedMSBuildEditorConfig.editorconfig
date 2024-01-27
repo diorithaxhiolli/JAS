@@ -140,12 +140,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ292ZXJMZXR0ZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/CV/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1ZcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/CV/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1ZcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Dashboard/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+[D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/CV/View.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1ZcVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Dashboard/AdminDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEFkbWluRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Dashboard/CompanyDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXENvbXBhbnlEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Dashboard/JobSeekerDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEpvYlNlZWtlckRhc2hib2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Education/Index.cshtml]
@@ -180,6 +196,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iU2tpbGxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Message/Denied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZVxEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Message/Oops.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZVxPb3BzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Message/Success.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZVxTdWNjZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -200,8 +224,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Shared/_LayoutCompany.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDb21wYW55LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Shared/_LayoutDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Shared/_LayoutJobSeeker.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRKb2JTZWVrZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Schule/Semestri 5/Dizajn Softueri/Dorezime/4/main/JAS/Views/Shared/_LoginPartial.cshtml]

@@ -2,9 +2,14 @@
 
 namespace JAS.Controllers
 {
-    public class Message : Controller
+    public class MessageController : Controller
     {
         public IActionResult Success()
+        {
+            return View();
+        }
+
+        public IActionResult Oops()
         {
             return View();
         }
