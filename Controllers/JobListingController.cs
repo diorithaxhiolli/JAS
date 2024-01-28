@@ -159,6 +159,7 @@ namespace JAS.Controllers
             return RedirectToAction("JobCreation");
         }
 
+        /*
         //read
         [HttpGet]
         public async Task<IActionResult> View(int id)
@@ -180,9 +181,11 @@ namespace JAS.Controllers
 
             return RedirectToAction("View"); // Redirect to a meaningful action, e.g., Index
         }
+         */
 
 
-        //update
+        /*
+         //update
         [HttpPost]
         public async Task<IActionResult> View(HomePageComposite model)
         {
@@ -212,7 +215,7 @@ namespace JAS.Controllers
             }
 
             return RedirectToAction("Index"); // Redirect to a meaningful action, e.g., Index
-        }
+        }*/
 
     }
 }

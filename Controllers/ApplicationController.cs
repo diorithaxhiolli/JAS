@@ -23,7 +23,8 @@ namespace JAS.Controllers
         [HttpGet]
         public async Task<IActionResult> Write()
         {
-            int positionId = 1;
+            //NEEDS CHANGE LATER, ONLY FOR TESTING
+            int positionId = 10;
             var currentUser = await _userManager.GetUserAsync(User);
             var jobListingModel = await _dBContext.JobListing.FindAsync(positionId);
 

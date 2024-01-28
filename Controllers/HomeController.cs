@@ -21,7 +21,12 @@ namespace JAS.Controllers
             this.userManager = userManager;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            return View();
+        }
 
+        /*
         public async Task<IActionResult> Index()
         {
             var currentUser = await userManager.GetUserAsync(User);
@@ -49,8 +54,9 @@ namespace JAS.Controllers
 
             return View(jobListingList);
         }
+         */
 
-            public IActionResult Privacy()
+        public IActionResult Privacy()
         {
             return View();
         }

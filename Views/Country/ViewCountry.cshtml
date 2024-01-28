@@ -1,0 +1,58 @@
+﻿@model JAS.Models.Domain.Country
+@{
+    ViewData["Title"] = "View Country";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+<main class="form-signin w-100 siform border border-info shadow rounded-3">
+    <form method="post" action="ViewCountryPost" enctype="multipart/form-data">
+        <div class="text-center">
+            <img class="mb-4" src="~/images/travista-dark.png" alt="" width="200" height="80">
+        </div>
+        <h1 class="h3 mb-3 fw-normal text-center">Country Details</h1>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-floating my-2">
+                    <input type="text" class="form-control rounded-bottom mt-2" asp-for="countryId" placeholder="Country ID" readonly required>
+                    <label for="countryId">Country ID</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating my-2">
+                    <input type="text" class="form-control rounded-bottom mt-2" asp-for="countryName" placeholder="Country Name" required>
+                    <label for="countryName">Country Name</label>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-floating my-2">
+                    <input type="text" class="form-control rounded-bottom mt-2" asp-for="language" placeholder="Language of the country" required>
+                    <label for="language">Language</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+<button class="w-100 btn btn-lg btn-primary" style="margin: 10px 0;" type="submit" formaction="@Url.Action("ViewCountryPost", "Country")">
+    <i class="fas fa-pen-to-square" style="margin-right: 3px;"></i> Update Country
+</button>
+       
+    </div>
+
+            <div class="col-md-6">
+                <button class="w-100 btn btn-lg btn-danger" style="margin: 10px 0;" type="submit" formaction="@Url.Action("DeleteCountry", "Country")"><i class="fa-regular fa-trash-can" style="margin-right: 3px"></i>Delete Country</button>
+            </div>
+        </div>
+    </form>
+</main>
+
+
+</body>
+</html>
