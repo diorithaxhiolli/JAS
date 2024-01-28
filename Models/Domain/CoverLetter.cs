@@ -9,7 +9,7 @@ namespace JAS.Models.Domain
         [Key]
         public int coverLetterId { get; set; }
 
-        //public string coverLetterPath { get; set; } ***FUTURE USE***
+        public string filePath { get; set; }
 
         [Required]
         public int applicationId { get; set; }
