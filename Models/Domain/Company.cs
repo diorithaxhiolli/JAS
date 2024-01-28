@@ -17,11 +17,15 @@ namespace JAS.Models.Domain
         [StringLength(1500)]
         public string description { get; set; }
 
+        [Required]
+        public int cityId { get; set; }
+
         [ForeignKey(nameof(companyId))]
         public virtual JASUser User { get; set; }
 
-        public virtual ICollection<JobListing> JobListing { get; set; }
+        [ForeignKey(nameof(cityId))]
+        public virtual City City { get; set; }
 
-        public virtual ICollection<City> City { get; set; }
+        public virtual ICollection<JobListing> JobListing { get; set; }
     }
 }

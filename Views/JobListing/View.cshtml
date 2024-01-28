@@ -2,7 +2,7 @@
 @using JAS.Models.Domain
 @model JobListing;
 @{
-    ViewData["Title"] = "Create Job Listing";
+    ViewData["Title"] = "Edit Job Listing";
     Layout = "~/Views/Shared/_LayoutCompany.cshtml";
 }
 
@@ -22,8 +22,12 @@
                 </h3>
             </div>
             <!-- Modal body -->
-            <form asp-action="AddJobListingOnPost" class="p-4 md:p-5" enctype="multipart/form-data">
+            <form asp-action="UpdateJobListingOnPost" class="p-4 md:p-5" enctype="multipart/form-data">
                 <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2 hidden">
+                        <label asp-for="@Model.positionId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job title</label>
+                        <input asp-for="@Model.positionId" readonly type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type job title" required="">
+                    </div>
                     <div class="col-span-2">
                         <label asp-for="@Model.title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job title</label>
                         <input asp-for="@Model.title" maxlength="100" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type job title" required="">
@@ -31,7 +35,7 @@
                     <div class="col-span-2">
                         <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a category</label>
                         <select id="countries" asp-for="@Model.categoryId" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="" selected disabled>Choose a category</option>
+                            <option value="@Model.categoryId" selected>@ViewData["categoryName"].ToString()</option>
                             @{
                                 foreach (var category in ViewData["Categories"] as List<JobCategory>)
                                 {
@@ -45,18 +49,20 @@
                         <input asp-for="@Model.salary" type="number" readonly id="salaryInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="€50000" required="">
                         <div class="relative mb-6">
                             <label for="labels-range-input" class="sr-only">Labels range</label>
-                            <input id="labels-range-input" type="range" value="50000" min="100" max="100000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+                            <input id="labels-range-input" type="range" value="@Model.salary" min="100" max="100000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
                             <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">Min ($100)</span>
                             <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">Max (€100000)</span>
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="w-full transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
+                <div class="flex items-center space-x-4">
+                    <button type="submit" class="w-full transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
                             bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300
                             dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
                             font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white dark:text-darktextcolor">
-                    <i class="fa-solid fa-plus mr-2"></i>Add new CV
-                </button>
+                        <i class="fa-solid fa-arrows-rotate mr-2"></i>Update CV
+                    </button>
+                </div>
             </form>
         </div>
     </div>
