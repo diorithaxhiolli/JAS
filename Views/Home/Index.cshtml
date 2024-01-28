@@ -1,11 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<JAS.Models.Domain.CompositeModel.HomePageComposite>
+
+<h1>Job Listings</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Category</th>
+    </tr>
+    </thead>
+    <tbody
+@if (Model != null)
+{
+    foreach (var job in Model)
+    {
+        <tr>
+            <td>@(job.Title ?? "N/A")</td>
+            <td>@(job.CompanyName ?? "N/A")</td>
+            <td>@(job.CategoryName ?? "N/A")</td>
+            <td><a href="JobListing/View/@job.JobId">View</a></td>
+        </tr>
+    }
 }
-
-
-<div class="space-y-5">
-    <h1 class="text-center text-textcolor dark:text-darktextcolor">Site is under construction!</h1>
-    <div class="flex justify-center items-center">
-        <img class="rounded-lg shadow hover:shadow-lg" src="~/content/Baustelle.jpg" />
-    </div>
-</div>
+else
+{
+    <p>No data available.</p>
+    }
+ </tbody>
+</table>

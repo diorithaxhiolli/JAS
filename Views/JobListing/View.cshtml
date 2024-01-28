@@ -1,0 +1,39 @@
+﻿@model JAS.Models.Domain.CompositeModel.HomePageComposite
+@using JAS.Models.Domain
+@using JAS.Models.Domain.CompositeModel
+@using System.Collections.Generic // Add this line
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="bg-background text-textcolor dark:bg-darkbackground dark:text-darktextcolor">
+    <div class="container mx-auto p-4 flex flex-col items-center">
+        <h2 class="text-2xl font-semibold mb-4 dark:text-white">Edit Job</h2>
+
+        <form class="bg-gray-200 dark:bg-gray-700 p-6 rounded" method="post" action="@Url.Action("View", "JobListing")">
+            <!-- Use the appropriate action and controller names in the action attribute -->
+
+            <div class="mb-4">
+                <label for="title" class="block font-medium dark:text-white mb-2">Job Title:</label>
+                <input type="text" id="title" name="title" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500 text-black" required value="@Model.Title" />
+            </div>
+
+            <div class="mb-4">
+                <label for="categoryId" class="block font-medium dark:text-white mb-2">Category:</label>
+                <select id="categoryId" name="categoryId" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500 text-black" required>
+                    @foreach (var category in ViewData["Categories"] as List<JobCategory>)
+                    {
+<option value="@category.categoryId" selected="@((Model.CategoryName == category.name).ToString().ToLower())">@category.name</option>
+
+                    }
+                </select>
+            </div>
+
+            <div class="flex justify-center items-center mt-2">
+                <button type="submit" class="bg-primary text-white px-4 py-2 rounded hover:bg-blue-700 dark:bg-darkprimary dark:hover:bg-darkaccent dark:focus:ring-darkaccent mt-2">Update Job</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
