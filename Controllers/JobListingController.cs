@@ -3,6 +3,7 @@ using JAS.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace JAS.Controllers
 {
@@ -15,6 +16,17 @@ namespace JAS.Controllers
         {
             this.jasContext = jasContext;
             this.userManager = userManager;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var currentUser = await userManager.GetUserAsync(User);
+
+            var jobListingList = await jasContext.JobListing
+                .Where(cv => cv.companyId == currentUser.Id)
+                .ToListAsync();
+
+            return View(jobListingList);
         }
 
         [HttpGet]

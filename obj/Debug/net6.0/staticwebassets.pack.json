@@ -129,6 +129,22 @@
       "PackagePath": "staticwebassets\\uploads\\04664e30-3c4d-47af-bdc3-25de12ad57e5.pdf"
     },
     {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\94d1bad9-b6ce-4138-b6dd-76ffcda55e77.pdf",
+      "PackagePath": "staticwebassets\\uploads\\94d1bad9-b6ce-4138-b6dd-76ffcda55e77.pdf"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\9f2758e8-f500-4b35-ab4b-2a9e26d852aa.pdf",
+      "PackagePath": "staticwebassets\\uploads\\9f2758e8-f500-4b35-ab4b-2a9e26d852aa.pdf"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\dac972ef-329f-4ad0-8c25-e7a0987248c2.pdf",
+      "PackagePath": "staticwebassets\\uploads\\dac972ef-329f-4ad0-8c25-e7a0987248c2.pdf"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\f8ba7937-7108-446b-9a7f-d19a6baecbe5.pdf",
+      "PackagePath": "staticwebassets\\uploads\\f8ba7937-7108-446b-9a7f-d19a6baecbe5.pdf"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.JAS.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

@@ -5,3 +5,16 @@
 /node_modules
 /.vs/JAS/FileContentIndex/edab6d99-9c82-4fde-a637-93db5c7829b7.vsidx
 *.vsidx
+/Controllers/.vshistory
+/.vshistory/appsettings.json
+/Models/Domain/.vshistory
+/Models/Domain/CompositeModel/.vshistory/StatusComposite.cs
+/Views/Application/.vshistory/Index.cshtml
+/Views/Application/.vshistory/Index.cshtml/2024-01-26_02_33_57_280.cshtml
+/Views/JobListing/.vshistory
+/Views/JobListing/.vshistory/Create.cshtml/2024-01-27_22_50_42_191.cshtml
+/Views/Roles/.vshistory/ViewRole.cshtml
+/Views/Shared/.vshistory
+/Views/Shared/.vshistory/_LayoutCompany.cshtml/2024-01-27_21_46_44_263.cshtml
+/Views/Status/.vshistory/Index.cshtml
+/Views/Status/.vshistory/View.cshtml

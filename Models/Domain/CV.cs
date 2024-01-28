@@ -9,7 +9,6 @@ namespace JAS.Models.Domain
         [Required]
         public int cvId { get; set; }
 
-
         [Required]
         [StringLength(100)]
         public string name { get; set; }
@@ -28,8 +27,6 @@ namespace JAS.Models.Domain
 
         [ForeignKey(nameof(jobSeekerId))]
         public virtual JobSeeker JobSeeker { get; set; }
-
-
 
         public virtual ICollection<Application> Application { get; set; }
         public virtual ICollection<Experience> Experience { get; set; }

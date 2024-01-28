@@ -13,10 +13,6 @@ namespace JAS.Models.Domain
         [StringLength(100)]
         public string statusName { get; set; }
 
-        [Required]
-        public int applicationId { get; set; }
-
-        [ForeignKey(nameof(applicationId))]
-        public virtual Application Application { get; set; }
+        public virtual ICollection<Application> Application { get; set; }
     }
 }
