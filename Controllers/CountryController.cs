@@ -55,27 +55,6 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-        /*     [HttpGet]
-        public async Task<IActionResult> ViewCountry(int ID_Country)
-        {
-            var country = await jasContext.Country.FirstOrDefaultAsync(x => x.countryId == ID_Country);
-
-            if (country != null)
-            {
-                var viewModel = new Country()
-                {
-                    countryId = country.countryId,
-                    countryName = country.countryName,
-                    language = country.language
-                };
-
-                return View("ViewCountry", viewModel);
-            }
-            return RedirectToAction("Index");
-        }
-   */
         //update
         [HttpPost]
         public async Task<IActionResult> ViewCountryPost(Country model)

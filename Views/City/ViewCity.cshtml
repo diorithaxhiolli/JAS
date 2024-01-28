@@ -1,0 +1,53 @@
+﻿﻿
+@model JAS.Models.Domain.City
+
+@{
+    ViewData["Title"] = "View City";
+}
+<head>
+</head>
+
+<html lang="en">
+<body>
+    <main class="form-signin w-100 siform border border-info shadow rounded-3">
+
+        <form method="post" action="ViewCityPost" enctype="multipart/form-data">
+            <div class="text-center">
+                <img class="mb-4" src="~/images/travista-dark.png" alt="" width="200" height="80">
+            </div>
+            <h1 class="h3 mb-3 fw-normal text-center">Add a City</h1>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-floating my-2">
+                        <input type="text" class="form-control rounded-bottom mt-2" asp-for="cityId" placeholder="ID" readonly required>
+                        <label for="">City ID</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating my-2">
+                        <input type="text" class="form-control rounded-bottom mt-2" asp-for="cityName" placeholder="City" required>
+                        <label for="">City Name</label>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-floating my-2">
+                        <input type="text" class="form-control rounded-bottom mt-2" asp-for="countryId" readonly required
+                               placeholder="shembull@gmail.com">
+                        <label>ID of country</label>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <button class="w-100 btn btn-lg btn-primary" style="margin: 10px 0;" type="submit"><i class="fas fa-pen-to-square" style="margin-right: 3px;"></i>Update City</button>
+                </div>
+                <div class="col-md-6">
+                    <button class="w-100 btn btn-lg btn-danger" style="margin: 10px 0;" type="submit" formaction="@Url.Action("DeleteCity", "City")"><i class="fa-regular fa-trash-can" style="margin-right: 3px"></i>Delete City</button>
+                </div>
+
+            </div>
+        </form>
+    </main
+</body>
+</html>

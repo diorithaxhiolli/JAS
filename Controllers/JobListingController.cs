@@ -70,7 +70,7 @@ namespace JAS.Controllers
             ViewData["Categories"] = categories;
 
             if (jobListing != null)
-            {
+            {   
                 var viewModel = new JobListing()
                 {
                     title = jobListing.title,
@@ -126,6 +126,8 @@ namespace JAS.Controllers
 
  
 
+        /*
+
         [HttpGet]
         public IActionResult JobCreation()
         {
@@ -135,6 +137,8 @@ namespace JAS.Controllers
             return View();
         }
 
+       
+        /*
         //create
         [HttpPost]
         public async Task<IActionResult> JobCreation(JobListing addJobRequest)

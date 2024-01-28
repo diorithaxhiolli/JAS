@@ -1,0 +1,47 @@
+﻿@model JAS.Models.Domain.City
+
+
+@{
+    ViewData["Title"] = "Add City";
+}
+
+<head>
+</head>
+
+<html lang="en">
+<body>
+    <main class="form-signin w-100 siform border border-info shadow rounded-3">
+
+        <form method="post" action="AddCityPost" enctype="multipart/form-data">
+            <div class="text-center">
+                <img class="mb-4" src="~/images/travista-dark.png" alt="" width="200" height="80">
+            </div>
+            <h1 class="h3 mb-3 fw-normal text-center">Add a City</h1>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-floating my-2">
+                        <input type="text" class="form-control rounded-bottom mt-2" asp-for="cityName" required placeholder="City">
+                        <label for="">Name of the city</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating my-2">
+                        <input type="text" class="form-control rounded-bottom mt-2" asp-for="countryId" required readonly
+                               placeholder="shembull@gmail.com">
+                        <label>Country ID</label>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button class="w-100 btn btn-lg btn-primary mt-3" style="margin: 10px 0;" type="submit">Create City</button>
+                </div>
+            </div>
+
+        </form>
+    </main>
+
+    <script src="~/lib/popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
