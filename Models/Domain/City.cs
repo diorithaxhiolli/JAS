@@ -14,15 +14,11 @@ namespace JAS.Models.Domain
         public string cityName { get; set; }
 
         [Required]
-        public string companyId { get; set; }
-
-        [Required]
         public int countryId { get; set; }
-
-        [ForeignKey(nameof(companyId))]
-        public virtual Company Company { get; set; }
 
         [ForeignKey(nameof(countryId))]
         public virtual Country Country { get; set; }
+
+        public virtual ICollection<Company> Company { get; set; }
     }
 }

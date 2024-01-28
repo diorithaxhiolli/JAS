@@ -22,6 +22,9 @@ namespace JAS.Models.Domain
         [Required]
         public int statusId { get; set; }
 
+        [Required]
+        public int coverLetterId { get; set; }
+
         [ForeignKey(nameof(statusId))]
         public virtual Status Status { get; set; }
 
@@ -31,9 +34,10 @@ namespace JAS.Models.Domain
         [ForeignKey(nameof(positionId))]
         public virtual JobListing JobListing { get; set; }
 
+        [ForeignKey(nameof(coverLetterId))]
+        public virtual CoverLetter CoverLetter { get; set; }
+
         [ForeignKey(nameof(cvId))]
         public virtual CV CV { get; set; }
-
-        public virtual ICollection<CoverLetter> CoverLetter { get; set; }
     }
 }

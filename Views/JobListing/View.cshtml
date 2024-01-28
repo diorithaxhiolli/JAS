@@ -1,39 +1,88 @@
-﻿@model JAS.Models.Domain.CompositeModel.HomePageComposite
+﻿@using Microsoft.AspNetCore.Identity
 @using JAS.Models.Domain
-@using JAS.Models.Domain.CompositeModel
-@using System.Collections.Generic // Add this line
+@model JobListing;
+@{
+    ViewData["Title"] = "Edit Job Listing";
+    Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<body class="bg-background text-textcolor dark:bg-darkbackground dark:text-darktextcolor">
-    <div class="container mx-auto p-4 flex flex-col items-center">
-        <h2 class="text-2xl font-semibold mb-4 dark:text-white">Edit Job</h2>
-
-        <form class="bg-gray-200 dark:bg-gray-700 p-6 rounded" method="post" action="@Url.Action("View", "JobListing")">
-            <!-- Use the appropriate action and controller names in the action attribute -->
-
-            <div class="mb-4">
-                <label for="title" class="block font-medium dark:text-white mb-2">Job Title:</label>
-                <input type="text" id="title" name="title" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500 text-black" required value="@Model.Title" />
+<div class="flex justify-center items-center h-screen">
+    <div class="mx-auto my-auto p-4 w-full max-w-2xl h-screen lg:h-auto">
+        <!-- Modal content -->
+        <div class="bg-white rounded-lg shadow dark:bg-gray-700 border-2 border-purple-500 dark:border-purple-800">
+            <!-- Modal header -->
+            <div class="items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="justify-center items-center text-lg text-center font-semibold text-gray-900 dark:text-white">
+                    Create Job Listing
+                </h3>
             </div>
-
-            <div class="mb-4">
-                <label for="categoryId" class="block font-medium dark:text-white mb-2">Category:</label>
-                <select id="categoryId" name="categoryId" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500 text-black" required>
-                    @foreach (var category in ViewData["Categories"] as List<JobCategory>)
-                    {
-<option value="@category.categoryId" selected="@((Model.CategoryName == category.name).ToString().ToLower())">@category.name</option>
-
-                    }
-                </select>
+            <div class="flex items-center justify-between p-4 md:px-5 md:py-2 rounded-t dark:border-gray-600">
+                <h3 class="justify-center items-center text-lg text-center font-semibold text-gray-900 dark:text-white">
+                    General Info
+                </h3>
             </div>
-
-            <div class="flex justify-center items-center mt-2">
-                <button type="submit" class="bg-primary text-white px-4 py-2 rounded hover:bg-blue-700 dark:bg-darkprimary dark:hover:bg-darkaccent dark:focus:ring-darkaccent mt-2">Update Job</button>
-            </div>
-        </form>
+            <!-- Modal body -->
+            <form asp-action="UpdateJobListingOnPost" class="p-4 md:p-5" enctype="multipart/form-data">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2 hidden">
+                        <label asp-for="@Model.positionId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job title</label>
+                        <input asp-for="@Model.positionId" readonly type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type job title" required="">
+                    </div>
+                    <div class="col-span-2">
+                        <label asp-for="@Model.title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job title</label>
+                        <input asp-for="@Model.title" maxlength="100" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type job title" required="">
+                    </div>
+                    <div class="col-span-2">
+                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a category</label>
+                        <select id="countries" asp-for="@Model.categoryId" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="@Model.categoryId" selected>@ViewData["categoryName"].ToString()</option>
+                            @{
+                                foreach (var category in ViewData["Categories"] as List<JobCategory>)
+                                {
+                                    <option value="@category.categoryId">@category.name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Job Salary</label>
+                        <input asp-for="@Model.salary" type="number" readonly id="salaryInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="€50000" required="">
+                        <div class="relative mb-6">
+                            <label for="labels-range-input" class="sr-only">Labels range</label>
+                            <input id="labels-range-input" type="range" value="@Model.salary" min="100" max="100000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+                            <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">Min ($100)</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">Max (€100000)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button type="submit" class="w-full transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
+                            bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300
+                            dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
+                            font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white dark:text-darktextcolor">
+                        <i class="fa-solid fa-arrows-rotate mr-2"></i>Update CV
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-</body>
+</div>
 
-</html>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var rangeInput = document.getElementById('labels-range-input');
+        var salaryInput = document.getElementById('salaryInput');
+
+        updateSalaryLabel(rangeInput.value);
+
+        rangeInput.addEventListener('input', function () {
+            updateSalaryLabel(this.value);
+        });
+
+        function updateSalaryLabel(salary) {
+            salaryInput.value = salary;
+        }
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/datepicker.min.js"></script>
