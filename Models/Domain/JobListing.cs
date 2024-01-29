@@ -20,6 +20,10 @@ namespace JAS.Models.Domain
         public int salary { get; set; }
 
         [Required]
+        [StringLength(1500)]
+        public string description { get; set; }
+
+        [Required]
         public string companyId { get; set; }
 
         [ForeignKey(nameof(categoryId))]

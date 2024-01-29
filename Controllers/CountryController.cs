@@ -36,7 +36,7 @@ namespace JAS.Controllers
                 language = addUserRequest.language
             };
 
-            jasContext.Country.Add(newCountry);
+            await jasContext.Country.AddAsync(newCountry);
             await jasContext.SaveChangesAsync();
 
             return RedirectToAction("Index");

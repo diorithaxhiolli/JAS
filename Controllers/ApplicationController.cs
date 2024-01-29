@@ -5,6 +5,7 @@ using JAS.Models.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
 using JAS.Models.Domain.CompositeModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JAS.Controllers
 {
@@ -20,11 +21,10 @@ namespace JAS.Controllers
             this._env = _env;
         }
 
+        [Authorize(Roles = "JobSeeker")]
         [HttpGet]
-        public async Task<IActionResult> Write()
+        public async Task<IActionResult> Write(int positionId)
         {
-            //NEEDS CHANGE LATER, ONLY FOR TESTING
-            int positionId = 10;
             var currentUser = await _userManager.GetUserAsync(User);
             var jobListingModel = await _dBContext.JobListing.FindAsync(positionId);
 

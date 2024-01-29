@@ -80,6 +80,7 @@ namespace JAS.Controllers
                     salary = jobListing.salary,
                     companyId = jobListing.companyId,
                     categoryId = jobListing.categoryId,
+                    description = jobListing.description,
                 };
 
                 return View("View", viewModel);
@@ -98,6 +99,7 @@ namespace JAS.Controllers
                 jobListing.title = model.title;
                 jobListing.salary = model.salary;
                 jobListing.categoryId = model.categoryId;
+                jobListing.description = model.description;
 
                 await jasContext.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -119,7 +121,8 @@ namespace JAS.Controllers
                 title = model.title,
                 categoryId = model.categoryId,
                 salary = model.salary,
-                companyId = currentUser.Id
+                companyId = currentUser.Id,
+                description = model.description,
             };
 
             await jasContext.JobListing.AddAsync(jobListing);
@@ -192,6 +195,19 @@ namespace JAS.Controllers
             await jasContext.SaveChangesAsync();
 
             return await ViewUserCV(cvId);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ViewJobListing(int positionId)
+        {
+            var jobListingModel = await jasContext.JobListing
+                .Include(jc => jc.JobCategory)
+                .Include(c => c.Company)
+                    .ThenInclude(c => c.City)
+                .Where(jl => jl.positionId == positionId)
+                .FirstOrDefaultAsync();
+
+            return View(jobListingModel);
         }
 
         public async Task<IActionResult> DownloadCV(int cvId)

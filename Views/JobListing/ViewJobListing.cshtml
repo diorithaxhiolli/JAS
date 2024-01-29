@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "View a Job Listing";
+}
+@using JAS.Models.Domain;
+@model JobListing;
+
+<div class="py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row -mx-4">
+            <div class="md:flex-1 px-4">
+                <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
+                    <img class="w-full h-full object-cover rounded-lg" src="@Url.Content(Model.Company.imagePath)" alt="Product Image">
+                </div>
+                <div class="flex -mx-2 mb-4">
+                    <div class="w-full px-2">
+                        <a href="@Url.Action("Write", "Application", new { positionId = Model.positionId })">
+                            <button class="w-full text-white transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><i class="fa-solid fa-user-plus text-darktextcolor" style="margin-right: 5px;"></i>Apply for @Model.title</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="md:flex-1 px-4">
+                <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">@Model.title</h2>
+                <p class="whitespace-pre-line text-gray-600 dark:text-gray-300 text-sm mb-4">
+                    @Model.Company.description
+                </p>
+                <div class="flex mb-4">
+                    <div class="mr-4">
+                        <span class="font-bold text-gray-700 dark:text-gray-300">Yearly salary:</span>
+                        <span class="text-gray-600 dark:text-gray-300">€@Model.salary</span>
+                    </div>
+                    <div>
+                        <span class="font-bold text-gray-700 dark:text-gray-300">Location:</span>
+                        <span class="text-gray-600 dark:text-gray-300">@Model.Company.City.cityName</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-bold text-gray-700 dark:text-gray-300">Job Description:</span>
+                    <p class="whitespace-pre-line text-gray-600 dark:text-gray-300 text-sm mt-2">
+                        @Model.description
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

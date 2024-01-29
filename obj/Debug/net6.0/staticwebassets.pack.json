@@ -133,8 +133,28 @@
       "PackagePath": "staticwebassets\\uploads\\04664e30-3c4d-47af-bdc3-25de12ad57e5.pdf"
     },
     {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\0b3ae383-907b-485e-8eea-843e3db1b70b.pdf",
+      "PackagePath": "staticwebassets\\uploads\\0b3ae383-907b-485e-8eea-843e3db1b70b.pdf"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\1e2b8195-d911-4530-8488-a60abbf753bf.png",
+      "PackagePath": "staticwebassets\\uploads\\1e2b8195-d911-4530-8488-a60abbf753bf.png"
+    },
+    {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\2f00859c-bff9-4a73-8645-a4c907ff7481.pdf",
       "PackagePath": "staticwebassets\\uploads\\2f00859c-bff9-4a73-8645-a4c907ff7481.pdf"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\58fbfcb4-c16d-4b95-9d40-e8ae0068947e.png",
+      "PackagePath": "staticwebassets\\uploads\\58fbfcb4-c16d-4b95-9d40-e8ae0068947e.png"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\5e67add0-20ee-4062-a1c8-23222cfd486a.pdf",
+      "PackagePath": "staticwebassets\\uploads\\5e67add0-20ee-4062-a1c8-23222cfd486a.pdf"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\91183edc-590c-41de-8e26-f7c8b2122708.png",
+      "PackagePath": "staticwebassets\\uploads\\91183edc-590c-41de-8e26-f7c8b2122708.png"
     },
     {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\94d1bad9-b6ce-4138-b6dd-76ffcda55e77.pdf",
@@ -153,8 +173,16 @@
       "PackagePath": "staticwebassets\\uploads\\a0caefa3-53d9-4393-8fc1-26756f72691b.pdf"
     },
     {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\bd29d222-dd14-4627-9c2a-a7b4bb45cc7b.pdf",
+      "PackagePath": "staticwebassets\\uploads\\bd29d222-dd14-4627-9c2a-a7b4bb45cc7b.pdf"
+    },
+    {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\dac972ef-329f-4ad0-8c25-e7a0987248c2.pdf",
       "PackagePath": "staticwebassets\\uploads\\dac972ef-329f-4ad0-8c25-e7a0987248c2.pdf"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\f0b7c306-5f80-49c6-8057-ca1d0cfd4971.png",
+      "PackagePath": "staticwebassets\\uploads\\f0b7c306-5f80-49c6-8057-ca1d0cfd4971.png"
     },
     {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\f425cff5-2ee6-4a42-b0d7-108395db6ee9.pdf",
@@ -163,6 +191,10 @@
     {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\f8ba7937-7108-446b-9a7f-d19a6baecbe5.pdf",
       "PackagePath": "staticwebassets\\uploads\\f8ba7937-7108-446b-9a7f-d19a6baecbe5.pdf"
+    },
+    {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\uploads\\placeholder.jpg",
+      "PackagePath": "staticwebassets\\uploads\\placeholder.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.JAS.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -16,7 +16,7 @@
 <div class="relative overflow-x-auto rounded-t-lg mt-5 mx-5
             border-2 border-purple-500 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/50 dark:hover:shadow-xl dark:shadow-purple-800/80 dark:hover:shadow-purple-800/80
             dark:border-2 dark:border-purple-800">
-    <table class="w-full text-sm text-left rtl:text-right text-textcolor dark:text-darktextcolor">
+    <table class="w-full text-sm text-left rtl:text-right text-textcolor dark:text-darktextcolor overflow-hidden whitespace-nowrap overflow-ellipsis">
         <thead class="text-xs text-white dark:text-darktextcolor uppercase bg-purple-500 dark:bg-purple-800">
             <tr>
                 <th scope="col" class="px-6 py-3">
@@ -27,6 +27,9 @@
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Yearly Salary
+                </th>
+                <th scope="col" class="px-6 py-3 max-w-28 whitespace-nowrap overflow-hidden overflow-ellipsis">
+                    Job Description
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Number of applications
@@ -51,6 +54,9 @@
                     </td>
                     <td class="px-6 py-4">
                         @jobListing.JobListing.salary €
+                    </td>
+                    <td class="px-6 py-4 max-w-28 whitespace-nowrap overflow-hidden overflow-ellipsis">
+                        <span class="overflow-ellipsis">@jobListing.JobListing.description</span>
                     </td>
                     <td class="px-6 py-4">
                         <span class="bg-green-100 text-green-800 text-sm font-bold me-2 px-2.5 py-0.5 rounded border border-purple-500 dark:border-purple-800 dark:bg-green-900 dark:text-green-300">@jobListing.ApplicationCount</span>
