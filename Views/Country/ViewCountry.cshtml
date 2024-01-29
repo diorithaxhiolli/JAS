@@ -1,0 +1,49 @@
+﻿@model JAS.Models.Domain.Country
+@{
+    ViewData["Title"] = "View Country";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-background text-textcolor dark:bg-darkbackground dark:text-darktextcolor">
+
+    <main class="form-signin w-full siform border border-info shadow rounded-md bg-white dark:bg-gray-700 p-4 md:p-8">
+
+        <form method="post" action="ViewCountryPost" enctype="multipart/form-data">
+            <div class="text-center">
+            </div>
+            <h1 class="h3 mb-3 fw-normal text-center text-textcolor dark:text-white">Country Details</h1>
+            <hr />
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="form-floating my-2">
+                    <label for="countryId" class="text-textcolor dark:text-darktextcolor block text-sm font-semibold mb-1">Country ID</label>
+                    <input type="text" class="form-control rounded-bottom mt-2 w-full p-2 border border-gray-300 focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="countryId" placeholder="Country ID" readonly required>
+                </div>
+
+                <div class="form-floating my-2">
+                    <label for="countryName" class="text-textcolor dark:text-darktextcolor block text-sm font-semibold mb-1">Country Name</label>
+                    <input type="text" class="form-control rounded-bottom mt-2 w-full p-2 border border-gray-300 focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="countryName" placeholder="Country Name" required>
+                </div>
+
+                <div class="form-floating my-2 col-span-2">
+                    <label for="language" class="text-textcolor dark:text-darktextcolor block text-sm font-semibold mb-1">Language</label>
+                    <input type="text" class="form-control rounded-bottom mt-2 w-full p-2 border border-gray-300 focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="language" placeholder="Language of the country" required>
+                </div>
+
+                <button class="w-full btn btn-lg btn-primary bg-primary text-white hover:bg-darkprimary dark:hover:bg-darksecondary mt-4" type="submit" formaction="@Url.Action("ViewCountryPost", "Country")">
+                    <i class="fas fa-pen-to-square mr-1"></i> Update Country
+                </button>
+
+                <button class="w-full btn btn-lg btn-primary bg-primary text-white hover:bg-darkprimary dark:hover:bg-darksecondary mt-4" type="submit" formaction="@Url.Action("DeleteCountry", "Country")">
+                    <i class="fa-regular fa-trash-can mr-1"></i>Delete Country
+                </button>
+            </div>
+        </form>
+    </main>
+
+</body>
+</html>

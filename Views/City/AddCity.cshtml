@@ -1,0 +1,33 @@
+﻿@model JAS.Models.Domain.City
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-background text-textcolor dark:bg-darkbackground dark:text-darktextcolor">
+
+    <main class="form-signin w-full siform border border-info shadow rounded-md bg-white dark:bg-gray-700 p-4 md:p-8">
+
+        <form method="post" action="AddCityPost" enctype="multipart/form-data">
+            <div class="text-center">
+            </div>
+            <h1 class="h3 mb-3 fw-normal text-center text-textcolor dark:text-white">Add a City</h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="form-floating my-2">
+                    <input type="text" class="form-control rounded-bottom mt-2 p-2 border border-gray-300 focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="cityName" required placeholder="City">
+                    <label for="cityName" class="text-textcolor dark:text-darktextcolor">Name of the city</label>
+                </div>
+                
+                <div class="form-floating my-2">
+                    <input type="text" class="form-control rounded-bottom mt-2 p-2 border border-gray-300 focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="countryId" required readonly placeholder="Country ID">
+                    <label for="countryId" class="text-textcolor dark:text-darktextcolor">Country ID</label>
+                </div>
+                
+                <button class="w-full btn btn-lg btn-primary bg-primary text-white hover:bg-darkprimary dark:hover:bg-darksecondary mt-3 p-2">Create City</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
