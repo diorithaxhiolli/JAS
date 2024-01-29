@@ -18,6 +18,10 @@ namespace JAS.Models.Domain
         public string description { get; set; }
 
         [Required]
+        [StringLength(1500)]
+        public string imagePath { get; set; }
+
+        [Required]
         public int cityId { get; set; }
 
         [ForeignKey(nameof(companyId))]

@@ -5,25 +5,44 @@ namespace JAS.Controllers
 {
     public class DashboardController : Controller
     {
+        [Authorize]
         public IActionResult Control()
         {
             if (User.IsInRole("Administrator"))
             {
                 // Display admin dashboard layout
-                return View("AdminDashboard");
+                return RedirectToAction("AdminDashboard");
             }
             else if (User.IsInRole("JobSeeker"))
             {
                 // Display user dashboard layout
-                return View("JobSeekerDashboard");
+                return RedirectToAction("JobSeekerDashboard");
             }
             else if (User.IsInRole("Company"))
             {
                 // Default dashboard layout for other roles or unauthenticated users
-                return View("CompanyDashboard");
+                return RedirectToAction("CompanyDashboard");
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Oops", "Message");
+        }
+
+        [Authorize(Roles = "Company")]
+        public IActionResult CompanyDashboard()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Administrator")]
+        public IActionResult AdminDashboard()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "JobSeeker")]
+        public IActionResult JobSeekerDashboard()
+        {
+            return View();
         }
     }
 }

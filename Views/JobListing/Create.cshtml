@@ -50,6 +50,13 @@
                             <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">Max (€100000)</span>
                         </div>
                     </div>
+
+
+                    <div class="col-span-2">
+                        <label asp-for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                        <textarea asp-for="description" required id="description" maxlength="1500" rows="5" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write a job description..."></textarea>
+                    </div>
+
                 </div>
                 <button type="submit" class="w-full transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
                             bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300

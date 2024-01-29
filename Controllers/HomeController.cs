@@ -23,38 +23,20 @@ namespace JAS.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View();
-        }
-
-        /*
-        public async Task<IActionResult> Index()
-        {
-            var currentUser = await userManager.GetUserAsync(User);
-
-            // Get the positionId from the JobListing model
-            var jobPositionId = await jasContext.JobListing
-                .Where(cv => cv.companyId == currentUser.Id)
-                .Select(j => j.positionId)
-                .FirstOrDefaultAsync();
-
-            // Use jobPositionId in your logic as needed
-
-            var jobListingList = await jasContext.JobListing
-                .Where(cv => cv.companyId == currentUser.Id)
-                .Include(j => j.Company)
-                .Include(j => j.JobCategory)
-                .Select(j => new HomePageComposite
-                {
-                    JobId = j.positionId,
-                    Title = j.title,
-                    CompanyName = j.Company != null ? j.Company.name : "N/A",
-                    CategoryName = j.JobCategory != null ? j.JobCategory.name : "N/A"
-                })
+            var jobListings = await jasContext.JobListing
+                .Include(jc => jc.JobCategory)
+                .Include(c => c.Company)
+                 .ThenInclude(c => c.City)
+                .Take(100)
                 .ToListAsync();
 
-            return View(jobListingList);
+            if (!jobListings.Any())
+            {
+                return RedirectToAction("Oops", "Message");
+            }
+
+            return View(jobListings);
         }
-         */
 
         public IActionResult Privacy()
         {
