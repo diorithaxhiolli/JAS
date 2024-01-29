@@ -247,5 +247,47 @@ namespace JAS.Controllers
             // Return the file as a downloadable content
             return PhysicalFile(filePath, "application/pdf", Path.GetFileName(filePath));
         }
+
+        public IActionResult Search()
+        {
+            return View("Home/Index");
+        }
+
+
     }
 }
+/*
+        [HttpGet]
+        public IActionResult JobCreation()
+        {
+            var categories = jasContext.JobCategory.ToList(); // Fetch categories from the database
+            ViewData["Categories"] = categories;
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> JobCreation(JobListing addJobRequest)
+        {
+            // Get the currently logged-in user
+            var user = await userManager.GetUserAsync(User);
+
+            // Check if the user is not null before accessing properties
+            if (user != null)
+            {
+                var job = new JobListing()
+                {
+                    title = addJobRequest.title,
+                    categoryId = addJobRequest.categoryId,
+                    companyId = user.Id.ToString(),
+                };
+
+                await jasContext.JobListing.AddAsync(job);
+                await jasContext.SaveChangesAsync();
+            }
+
+            return RedirectToAction("JobCreation");
+        }
+    }
+}
+*/

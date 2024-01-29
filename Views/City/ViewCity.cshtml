@@ -1,4 +1,7 @@
 ﻿@model JAS.Models.Domain.City
+@{
+    Layout = "~/Views/Shared/_LayoutJobSeeker.cshtml";
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,37 +10,53 @@
 </head>
 <body class="bg-background text-textcolor dark:bg-darkbackground dark:text-darktextcolor">
 
-    <main class="form-signin w-full siform border border-info shadow rounded-md bg-white dark:bg-gray-700 p-4 md:p-8">
+    <main class="flex justify-center items-center h-screen">
+        <div class="mx-auto my-auto p-4 w-full max-w-2xl h-screen lg:h-auto">
+            <div class="bg-white rounded-lg shadow dark:bg-gray-700 border-2 border-accent dark:border-darkaccent">
+                <div class="items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-lg text-center font-semibold text-gray-900 dark:text-white">
+                        View City
+                    </h3>
+                </div>
 
-        <form method="post" action="ViewCityPost" enctype="multipart/form-data">
-            <div class="text-center">
+                <form method="post" action="ViewCityPost" enctype="multipart/form-data" class="p-4 md:p-5">
+                    <div class="grid gap-4 mb-4 grid-cols-2">
+                        <div class="col-span-2">
+                            <label for="cityId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City ID</label>
+                            <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-accent dark:focus:border-accent" asp-for="cityId" placeholder="City ID" readonly required>
+                        </div>
+
+                        <div class="col-span-2">
+                            <label for="cityName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City Name</label>
+                            <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-accent dark:focus:border-accent" asp-for="cityName" placeholder="City Name" required>
+                        </div>
+
+                        <div class="col-span-2">
+                            <label for="countryId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country ID</label>
+                            <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-accent dark:focus:border-accent" asp-for="countryId" readonly required placeholder="Country ID">
+                        </div>
+
+                        <div class="flex gap-4 mt-3">
+                            <button type="submit" class="w-1/2 transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
+                                bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300
+                                dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80
+                                font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white dark:text-darktextcolor">
+                                <i class="fa-solid fa-arrows-rotate mr-2"></i> Update City
+                            </button>
+
+                            <button type="submit" class="w-1/2 transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
+                                bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300
+                                dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80
+                                font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white dark:text-darktextcolor" formaction="@Url.Action("DeleteCity", "City")">
+                                <i class="fa-regular fa-trash mr-2"></i> Delete City
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <h1 class="h3 mb-3 fw-normal text-center text-textcolor dark:text-white">View City</h1>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="form-floating my-2">
-                    <label for="cityId" class="text-textcolor dark:text-darktextcolor block text-sm font-semibold mb-1">City ID</label>
-                    <input type="text" class="form-control rounded-bottom mt-2 w-full p-2 border border-gray-300 focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="cityId" placeholder="City ID" readonly required>
-                </div>
-
-                <div class="form-floating my-2">
-                    <label for="cityName" class="text-textcolor dark:text-darktextcolor block text-sm font-semibold mb-1">City Name</label>
-                    <input type="text" class="form-control rounded-bottom mt-2 w-full p-2 border border-gray-300 focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="cityName" placeholder="City Name" required>
-                </div>
-
-                <div class="form-floating my-2">
-                    <label for="countryId" class="text-textcolor dark:text-darktextcolor block text-sm font-semibold mb-1">Country ID</label>
-                    <input type="text" class="form-control rounded-bottom mt-2 w-full p-2 border border-gray-300 focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="countryId" readonly required placeholder="Country ID">
-                </div>
-
-                <div class="flex gap-4 mt-3">
-                    <button class="flex-1 btn btn-lg btn-primary bg-primary text-white hover:bg-darkprimary dark:hover:bg-darksecondary p-2" type="submit"><i class="fas fa-pen-to-square" style="margin-right: 3px;"></i>Update City</button>
-
-                    <button class="flex-1 btn btn-lg btn-primary bg-primary text-white hover:bg-darkprimary dark:hover:bg-darksecondary p-2" type="submit" formaction="@Url.Action("DeleteCity", "City")"><i class="fa-regular fa-trash-can" style="margin-right: 3px;"></i>Delete City</button>
-                </div>
-            </div>
-        </form>
+        </div>
     </main>
 
 </body>
 </html>
+ 

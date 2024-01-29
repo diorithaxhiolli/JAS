@@ -1,4 +1,7 @@
 ﻿@model JAS.Models.Domain.City
+@{
+    Layout = "~/Views/Shared/_LayoutJobSeeker.cshtml";
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,27 +10,33 @@
 </head>
 <body class="bg-background text-textcolor dark:bg-darkbackground dark:text-darktextcolor">
 
-    <main class="form-signin w-full siform border border-info shadow rounded-md bg-white dark:bg-gray-700 p-4 md:p-8">
+<div class="container mx-auto mt-8">
+    <h1 class="text-2xl font-bold mb-4 text-center text-textcolor dark:text-white">Add City</h1>
 
-        <form method="post" action="AddCityPost" enctype="multipart/form-data">
-            <div class="text-center">
-            </div>
-            <h1 class="h3 mb-3 fw-normal text-center text-textcolor dark:text-white">Add a City</h1>
+    <form method="post" action="AddCityPost" enctype="multipart/form-data" class="max-w-md bg-white dark:bg-gray-700 p-6 rounded-md shadow-md border-2 border-info dark:border-accent-dark mx-auto">
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="form-floating my-2">
-                    <input type="text" class="form-control rounded-bottom mt-2 p-2 border border-gray-300 focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="cityName" required placeholder="City">
-                    <label for="cityName" class="text-textcolor dark:text-darktextcolor">Name of the city</label>
-                </div>
-                
-                <div class="form-floating my-2">
-                    <input type="text" class="form-control rounded-bottom mt-2 p-2 border border-gray-300 focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="countryId" required readonly placeholder="Country ID">
-                    <label for="countryId" class="text-textcolor dark:text-darktextcolor">Country ID</label>
-                </div>
-                
-                <button class="w-full btn btn-lg btn-primary bg-primary text-white hover:bg-darkprimary dark:hover:bg-darksecondary mt-3 p-2">Create City</button>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="form-floating my-2">
+                <input type="text" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="cityName" required placeholder="City">
+                <label for="cityName" class="block text-textcolor dark:text-darktextcolor text-sm font-semibold mb-2">Name of the city</label>
             </div>
-        </form>
-    </main>
+            
+            <div class="form-floating my-2">
+                <input type="text" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" asp-for="countryId" required readonly placeholder="Country ID">
+                <label for="countryId" class="block text-textcolor dark:text-darktextcolor text-sm font-semibold mb-2">Country ID</label>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-center mt-4">
+            <button type="submit" class="w-full transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
+                                        bg-gradient-to-r from-primary via-primary-dark to-darkprimary hover:bg-darkprimary focus:ring-4 focus:outline-none focus:ring-darkprimary
+                                        dark:focus:ring-darkaccent shadow-lg shadow-darkaccent/50 dark:shadow-lg dark:shadow-darkaccent/80
+                                        font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white dark:text-darktextcolor">
+                Create City
+            </button>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>
