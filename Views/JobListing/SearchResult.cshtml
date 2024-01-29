@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Search Result";
+}
+
+<h1>Search Result</h1>
+<container id="resultContainer">
+@if (Model.Count > 0)
+{
+    foreach (var jobListing in Model)
+    {
+        <div>
+            <h3>@jobListing.title</h3>
+            <p>Category: @jobListing.JobCategory.name</p>
+            <p>Salary: @jobListing.salary</p>
+            <!-- Add other job listing details as needed -->
+        </div>
+    }
+}
+else
+{
+    <p>No results found.</p>
+}
+</container>

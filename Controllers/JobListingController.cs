@@ -58,6 +58,7 @@ namespace JAS.Controllers
             return View();
         }
 
+        
         [HttpGet]
         public async Task<IActionResult> View(int positionId)
         {
@@ -86,6 +87,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+        
         [HttpPost]
         public async Task<IActionResult> UpdateJobListingOnPost(JobListing model)
         {
@@ -232,46 +234,40 @@ namespace JAS.Controllers
             return PhysicalFile(filePath, "application/pdf", Path.GetFileName(filePath));
         }
 
-        public IActionResult Search()
-        {
-            return View("Home/Index");
-        }
-
-
-    }
-}
-/*
         [HttpGet]
-        public IActionResult JobCreation()
+        public IActionResult SearchJobs(string searchTerm, int? categoryId)
         {
-            var categories = jasContext.JobCategory.ToList(); // Fetch categories from the database
-            ViewData["Categories"] = categories;
+            var query = jasContext.JobListing.AsQueryable();
 
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> JobCreation(JobListing addJobRequest)
-        {
-            // Get the currently logged-in user
-            var user = await userManager.GetUserAsync(User);
-
-            // Check if the user is not null before accessing properties
-            if (user != null)
+            if (!string.IsNullOrEmpty(searchTerm))
             {
-                var job = new JobListing()
-                {
-                    title = addJobRequest.title,
-                    categoryId = addJobRequest.categoryId,
-                    companyId = user.Id.ToString(),
-                };
-
-                await jasContext.JobListing.AddAsync(job);
-                await jasContext.SaveChangesAsync();
+                query = query.Where(j => j.JobCategory.name.Contains(searchTerm));
             }
 
-            return RedirectToAction("JobCreation");
+            if (categoryId.HasValue)
+            {
+                query = query.Where(j => j.categoryId == categoryId);
+            }
+
+            var searchResults = query.ToList();
+
+            return View("~/Views/JobListing/SearchResult.cshtml", searchResults);
         }
+
+        // get category name - provides data per dropdown search
+        [HttpGet]
+        public IActionResult GetCategoryNames(string searchTerm)
+        {
+            var categoryNames = jasContext.JobCategory
+                .Where(c => c.name.Contains(searchTerm))
+                .Select(c => c.name)
+                .ToList();
+
+            return Json(categoryNames);
+        }
+
+
+
     }
 }
-*/
+

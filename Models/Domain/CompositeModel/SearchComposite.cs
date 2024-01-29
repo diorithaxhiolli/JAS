@@ -1,9 +1,10 @@
-﻿namespace JAS.Models.Domain
+﻿namespace JAS.Models.Domain.CompositeModel
 {
     public class SearchComposite
     {
         public JobListing JobListing { get; set; }
+        public JobCategory JobCategory { get; set; }
+        public string SearchTerm { get; set; }
 
-        public string SearchJob { get; set; }
     }
 }

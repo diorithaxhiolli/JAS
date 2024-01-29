@@ -1,4 +1,4 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -16,7 +16,7 @@
     </div>
     <!-- Search bar on the right -->
     <div class="w-2/3">
-        
+        <!--  id="btnSearch" mos harro me shtu!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
         <div class="relative">
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -161,20 +161,45 @@
         </a>
     </div>
 </div>
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Autocomplete for search input
+            $("#default-search").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/JobListing/GetCategoryNames",
+                        type: "GET",
+                        dataType: "json",
+                        data: { searchTerm: request.term }, server
+                        success: function (data) {
+                            response(data);
+                        },
+                        error: function (error) {
+                            console.error('Error getting category names:', error);
+                        }
+                    });
+                },
+                minLength: 1, 
+                select: function (event, ui) {
+                    // Navigate to the job view with the selected category ID
+                    window.location.href = "/JobListing/View/" + ui.item.value;  // ndrysho URL pas krijimit te view per specific job!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                }
+            });
 
-<!--
-<script>
-    $('#btnSearch').click(function (e) {
-        $.ajax({
-            url: @Url.Action("",""),
-            type: "GET",
-            data: (
-                name: $('#default-search').val()
-            ),
-            success: function(result) {
-                $("#departmentList").empty();
-                $("#departmentList").html(result);
-            }
-        })
-    });
-</script>-->
+            $('#btnSearch').on('click', function () {
+                searchJobs();
+            });
+
+            // Optionally, you can also trigger the search when pressing Enter in the input field
+            $('#default-search').keypress(function (e) {
+                if (e.which === 13) {
+                    searchJobs();
+                }
+            });
+        });
+    </script>
+}
+
