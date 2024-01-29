@@ -181,7 +181,7 @@ namespace JAS.Controllers
         {
             var application = await jasContext.Application.FindAsync(applicationId);
 
-            if(application == null)
+            if (application == null)
             {
                 return RedirectToAction("Index");
             }
@@ -232,6 +232,15 @@ namespace JAS.Controllers
             return PhysicalFile(filePath, "application/pdf", Path.GetFileName(filePath));
         }
 
+        public IActionResult Search()
+        {
+            return View("Home/Index");
+        }
+
+
+    }
+}
+/*
         [HttpGet]
         public IActionResult JobCreation()
         {
@@ -265,3 +274,4 @@ namespace JAS.Controllers
         }
     }
 }
+*/
