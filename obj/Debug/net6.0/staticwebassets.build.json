@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LDR31ARwbzxhmMKFzmGDtoZ3A/UiCGcvaykds6CqPkQ=",
+  "Hash": "IxwqnN6/vSs2C2UUBNj4OvtDZ8u3b3yNCRkm+Um2vSE=",
   "Source": "JAS",
   "BasePath": "_content/JAS",
   "Mode": "Default",
@@ -1139,6 +1139,23 @@
       "OriginalItemSpec": "wwwroot\\content\\logo.png"
     },
     {
+      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\placeholder.jpg",
+      "SourceId": "JAS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\",
+      "BasePath": "_content/JAS",
+      "RelativePath": "content/placeholder.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\content\\placeholder.jpg"
+    },
+    {
       "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\placeholderlogo.png",
       "SourceId": "JAS",
       "SourceType": "Discovered",
@@ -1190,12 +1207,12 @@
       "OriginalItemSpec": "wwwroot\\content\\recruiter.png"
     },
     {
-      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\success.json",
+      "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\search.png",
       "SourceId": "JAS",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\",
       "BasePath": "_content/JAS",
-      "RelativePath": "content/success.json",
+      "RelativePath": "content/search.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1204,7 +1221,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\content\\success.json"
+      "OriginalItemSpec": "wwwroot\\content\\search.png"
     },
     {
       "Identity": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\css\\input.css",

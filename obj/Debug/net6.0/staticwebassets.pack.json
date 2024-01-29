@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\content\\logo.png"
     },
     {
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\placeholder.jpg",
+      "PackagePath": "staticwebassets\\content\\placeholder.jpg"
+    },
+    {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\placeholderlogo.png",
       "PackagePath": "staticwebassets\\content\\placeholderlogo.png"
     },
@@ -33,8 +37,8 @@
       "PackagePath": "staticwebassets\\content\\recruiter.png"
     },
     {
-      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\success.json",
-      "PackagePath": "staticwebassets\\content\\success.json"
+      "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\content\\search.png",
+      "PackagePath": "staticwebassets\\content\\search.png"
     },
     {
       "Id": "D:\\Schule\\Semestri 5\\Dizajn Softueri\\Dorezime\\4\\main\\JAS\\wwwroot\\css\\input.css",

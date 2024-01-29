@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using JAS.Models.Domain.CompositeModel;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.CodeAnalysis.CSharp.Formatting;
 
 namespace JAS.Controllers
 {
@@ -12,11 +13,13 @@ namespace JAS.Controllers
     {
         private readonly JASContext jasContext;
         private readonly UserManager<JASUser> userManager;
+        private readonly IWebHostEnvironment _env;
 
-        public JobListingController(JASContext jasContext, UserManager<JASUser> userManager)
+        public JobListingController(JASContext jasContext, UserManager<JASUser> userManager, IWebHostEnvironment _env)
         {
             this.jasContext = jasContext;
             this.userManager = userManager;
+            this._env = _env;
         }
 
         public async Task<IActionResult> Index()
@@ -121,6 +124,112 @@ namespace JAS.Controllers
             await jasContext.SaveChangesAsync();
 
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> ViewApplicationsJob(int positionId)
+        {
+            if (positionId == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var applicationData = await jasContext.Application
+                .Include(a => a.CoverLetter)
+                .Include(a => a.Status)
+                .Include(a => a.CV)
+                    .ThenInclude(cv => cv.Education)
+                .Include(a => a.CV)
+                    .ThenInclude(cv => cv.Experience)
+                .Include(a => a.JobListing)
+                .Include(a => a.JobSeeker)
+                    .ThenInclude(js => js.User)
+                .Where(app => app.positionId == positionId)
+                .ToListAsync();
+
+            return View(applicationData);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ViewUserCV(int cvId)
+        {
+            var status = jasContext.Status.ToList();
+            ViewData["Statuses"] = status;
+
+            var applicationData = await jasContext.Application
+                .Include(cv => cv.CV)
+                    .ThenInclude(cv => cv.Education)
+                .Include(cv => cv.CV)
+                    .ThenInclude(cv => cv.Experience)
+                .Include(st => st.Status)
+                .Include(cl => cl.CoverLetter)
+                .Include(jl => jl.JobListing)
+                .Include(js => js.JobSeeker)
+                    .ThenInclude(js => js.User)
+                .Where(app => app.cvId == cvId)
+                .FirstOrDefaultAsync();
+
+            if (applicationData == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View("ViewUserCV", applicationData);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangeStatus(int cvId, int statusId, int applicationId)
+        {
+            var application = await jasContext.Application.FindAsync(applicationId);
+
+            if(application == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            application.statusId = statusId;
+            await jasContext.SaveChangesAsync();
+
+            return await ViewUserCV(cvId);
+        }
+
+        public async Task<IActionResult> DownloadCV(int cvId)
+        {
+            var cv = await jasContext.CV.FirstOrDefaultAsync(c => c.cvId == cvId);
+
+            if (cv == null || string.IsNullOrEmpty(cv.filePath))
+            {
+                // Handle the case where the CV with the given ID is not found or file path is empty
+                return NotFound();
+            }
+
+            // Resolve the tilde (~) in the file path
+            var resolvedFilePath = cv.filePath.Replace("~/", string.Empty);
+
+            // Construct the full physical path
+            var filePath = Path.Combine(_env.WebRootPath, resolvedFilePath);
+
+            // Return the file as a downloadable content
+            return PhysicalFile(filePath, "application/pdf", Path.GetFileName(filePath));
+        }
+
+        public async Task<IActionResult> DownloadCoverLetter(int coverLetterId)
+        {
+            var coverLetter = await jasContext.CoverLetter.FirstOrDefaultAsync(c => c.coverLetterId == coverLetterId);
+
+            if (coverLetter == null || string.IsNullOrEmpty(coverLetter.filePath))
+            {
+                // Handle the case where the CV with the given ID is not found or file path is empty
+                return NotFound();
+            }
+
+            // Resolve the tilde (~) in the file path
+            var resolvedFilePath = coverLetter.filePath.Replace("~/", string.Empty);
+
+            // Construct the full physical path
+            var filePath = Path.Combine(_env.WebRootPath, resolvedFilePath);
+
+            // Return the file as a downloadable content
+            return PhysicalFile(filePath, "application/pdf", Path.GetFileName(filePath));
         }
 
         [HttpGet]
