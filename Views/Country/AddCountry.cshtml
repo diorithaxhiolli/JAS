@@ -8,29 +8,34 @@
     <title>Create Country</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-background text-textcolor dark:bg-darkbackground dark:text-darktextcolor">
 
 <div class="container mx-auto mt-8">
-    <h1 class="text-2xl font-bold mb-4">Create Country</h1>
+    <h1 class="text-2xl font-bold mb-4 text-center text-textcolor dark:text-white">Create Country</h1>
 
-    <form method="post" action="AddCountry" class="max-w-md bg-white p-6 rounded-md shadow-md">
+    <form method="post" action="AddCountry" class="max-w-md bg-white dark:bg-gray-700 p-6 rounded-md shadow-md border-2 border-accent dark:border-darkaccent mx-auto">
 
         <div class="mb-4">
-            <label for="countryName" class="block text-gray-600 text-sm font-semibold mb-2">Country Name</label>
-            <input type="text" id="countryName" name="countryName" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" required>
+            <label for="countryName" class="block text-gray-600 dark:text-gray-300 text-sm font-semibold mb-2">Country Name</label>
+            <input type="text" id="countryName" name="countryName" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" required>
         </div>
 
         <div class="mb-4">
-            <label for="language" class="block text-gray-600 text-sm font-semibold mb-2">Language</label>
-            <input type="text" id="language" name="language" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" required>
+            <label for="language" class="block text-gray-600 dark:text-gray-300 text-sm font-semibold mb-2">Language</label>
+            <input type="text" id="language" name="language" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-accent dark:border-accent-dark dark:bg-gray-800" required>
         </div>
 
         <div class="mb-4">
             <!-- Add city-related fields here if needed -->
         </div>
 
-        <div class="flex items-center">
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none hover:bg-blue-600">Create</button>
+        <div class="flex items-center justify-center">
+            <button type="submit" class="w-full transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
+                                        bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300
+                                        dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
+                                        font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white dark:text-darktextcolor">
+                <i class="fa-solid fa-plus mr-2"></i>Create Country
+            </button>
         </div>
     </form>
 </div>

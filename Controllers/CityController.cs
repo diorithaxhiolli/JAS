@@ -77,7 +77,6 @@ namespace Travista.Controllers
             return RedirectToAction("Index");
         }
 
-
         // update city
         [HttpPost]
         public async Task<IActionResult> ViewCityPost(City model)
@@ -96,8 +95,9 @@ namespace Travista.Controllers
                 return RedirectToAction("Index", new { ID_Country = model.countryId });
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "City");
         }
+
 
         // delete city
         public async Task<IActionResult> DeleteCity(City model)
@@ -109,10 +109,11 @@ namespace Travista.Controllers
                 _dBContext.City.Remove(city);
                 await _dBContext.SaveChangesAsync();
 
-        return RedirectToAction("Index", new { ID_Country = model.countryId });
+                return RedirectToAction("Index", new { ID_Country = model.countryId });
             }
 
-            return Redirect(Url.Action("Index", new { ID_Country = model.countryId }));
+            return RedirectToAction("Index", "City");
+
         }
     }
 }
