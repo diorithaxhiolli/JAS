@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using JAS.Models.Domain;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JAS.Controllers
 {
@@ -18,7 +19,7 @@ namespace JAS.Controllers
             _userManager = userManager;
         }
 
-
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Index()
         {
             StatusComposite statusComposite = new StatusComposite()
@@ -30,6 +31,7 @@ namespace JAS.Controllers
             return View(statusComposite);
         }
 
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> AddStatusOnPost(StatusComposite model)
         {
             if(model == null)
@@ -48,6 +50,8 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public async Task<IActionResult> View(int statusId)
         {
@@ -66,6 +70,8 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> ViewStatusOnPost(Status model)
         {
@@ -81,6 +87,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteStatus(Status model)
         {
             var status = await _dBContext.Status.FindAsync(model.statusId);

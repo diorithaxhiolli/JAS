@@ -8,6 +8,8 @@ using JAS.Models.Domain;
 using System.Diagnostics.Metrics;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JAS.Controllers
 {
@@ -33,6 +35,48 @@ namespace JAS.Controllers
             ViewData["Title"] = "Account Type";
             ViewBag.UserId = userId;
             return View();
+        }
+
+        [Authorize(Roles = "Company")]
+        [HttpGet]
+        public async Task<IActionResult> AccountSetting(string companyId)
+        {
+            var companyModel = await _dBContext.Company.FindAsync(companyId);
+
+            if (companyModel != null)
+            {
+                ViewBag.CityList = await _dBContext.City.ToListAsync();
+                return View(companyModel);
+            }
+
+            return View();
+        }
+
+
+        [Authorize(Roles = "Company")]
+        [HttpPost]
+        public async Task<IActionResult> AccountSettingPost(Company model, IFormFile filePath)
+        {
+            if (model == null)
+            {
+                return View("Oops", "Message");
+            }
+
+            var companyModel = await _dBContext.Company.FindAsync(model.companyId);
+
+            companyModel.name = model.name;
+            companyModel.description = model.description;
+            companyModel.cityId = model.cityId;
+
+            if (filePath != null)
+            {
+                var file = await SaveImage(filePath);
+                companyModel.imagePath = file.ToString();
+            }
+
+            await _dBContext.SaveChangesAsync();
+
+            return RedirectToAction("Control", "Dashboard");
         }
 
         public async Task<IActionResult> SetSeeker(Guid userId)
@@ -62,6 +106,8 @@ namespace JAS.Controllers
             return RedirectToAction("AddCompany", viewModel);
         }
 
+
+        [Authorize(Roles = "Company")]
         [HttpGet]
         public async Task<IActionResult> AddCompany(Company model)
         {
@@ -81,6 +127,7 @@ namespace JAS.Controllers
             return View("Index");
         }
 
+        [Authorize(Roles = "Company")]
         [HttpPost]
         public async Task<IActionResult> AddCompanyOnPost(Company model, IFormFile filePath)
         {

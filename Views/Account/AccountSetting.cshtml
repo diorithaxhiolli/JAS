@@ -1,0 +1,92 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using JAS.Models.Domain;
+@model JAS.Models.Domain.Company;
+@{
+    ViewData["Title"] = "Create Company";
+    Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+
+}
+
+<div class="flex items-center justify-center h-screen">
+    <div class="mx-auto my-auto p-4 w-full max-w-2xl h-screen md:h-auto">
+        <div class="p-4 bg-white rounded-lg shadow dark:bg-gray-800 border-2 border-purple-500 dark:border-purple-800 sm:p-5">
+            <div class="justify-center items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white text-center">
+                    Create Company
+                </h3>
+            </div>
+
+            <form asp-action="AccountSettingPost" asp-controller="Account" enctype="multipart/form-data">
+                <div class="grid gap-4 mb-4 sm:grid-cols-2">
+                    <div class="col-span-2">
+                        <label asp-for="companyId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Id</label>
+                        <input asp-for="companyId" type="text" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type company id" required="">
+                    </div>
+                    <div class="col-span-2">
+                        <label asp-for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                        <input asp-for="name" type="text" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type company name" required="">
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label asp-for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                        <textarea asp-for="description" required id="description" maxlength="1500" rows="5" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write a company description..."></textarea>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+                        <select id="countries" asp-for="cityId" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="" selected disabled>Choose a location for your company</option>
+                            @{
+                                @foreach (var cityModel in ViewBag.CityList ?? Enumerable.Empty<City>())
+                                {
+                                    <option value="@cityModel.cityId">@cityModel.cityName</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div class="col-span-2">
+                        <label class="relative inline-flex items-center me-5 cursor-pointer">
+                            <input type="checkbox" value="" id="toggleFileInput" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-purple-600"></div>
+                            <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Change your picture?</span>
+                        </label>
+
+                        <div id="fileInputContainer" class="hidden">
+                            <label asp-for="imagePath" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+                            <input asp-for="imagePath" value="imagePath" name="filePath" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG or JPG only.</p>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button type="submit" class="w-full transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
+                            bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300
+                            dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80
+                            font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white dark:text-darktextcolor">
+                        <i class="fa-solid fa-plus mr-2"></i>Update Company
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const toggleFileInput = document.getElementById('toggleFileInput');
+    const fileInputContainer = document.getElementById('fileInputContainer');
+
+    toggleFileInput.addEventListener('change', function () {
+        console.log('Checkbox state changed');
+
+        if (toggleFileInput.checked) {
+            fileInputContainer.classList.remove('hidden');
+        } else {
+            fileInputContainer.classList.add('hidden');
+        }
+    });
+</script>

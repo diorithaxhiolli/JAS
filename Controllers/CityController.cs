@@ -15,6 +15,7 @@ namespace Travista.Controllers
             this._dBContext = _dBContext;
         }
 
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Index(int ID_Country)
         {
             // Retrieve the cities for the specified country
@@ -24,12 +25,13 @@ namespace Travista.Controllers
             return View(cities);
         }
 
+        [Authorize(Roles = "Administrator")]
         public IActionResult AddCity()
         {
             return View();
         }
 
-        // get create city view
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public async Task<IActionResult> AddCity(int ID_Country)
         {
@@ -41,7 +43,7 @@ namespace Travista.Controllers
             return View(viewModel);
         }
 
-        // create city
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> AddCityPost(City addUserRequest)
         {
@@ -57,7 +59,7 @@ namespace Travista.Controllers
             return Redirect(Url.Action("Index", new { ID_Country = addUserRequest.countryId }));
         }
 
-        // view city
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public async Task<IActionResult> ViewCity(int ID_City)
         {
@@ -77,7 +79,7 @@ namespace Travista.Controllers
             return RedirectToAction("Index");
         }
 
-        // update city
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> ViewCityPost(City model)
         {
@@ -99,7 +101,7 @@ namespace Travista.Controllers
         }
 
 
-        // delete city
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteCity(City model)
         {
             var city = await _dBContext.City.FindAsync(model.cityId);

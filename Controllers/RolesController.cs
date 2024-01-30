@@ -19,6 +19,8 @@ namespace JAS.Controllers
             _roleManager = roleManager;
             this._dBContext = _dBContext;
         }
+
+        [Authorize(Roles = "Administrator")]
         public IActionResult Index()
         {
             RolesComposite rolesComposite = new RolesComposite(_roleManager)
@@ -29,6 +31,7 @@ namespace JAS.Controllers
             return View(rolesComposite);
         }
 
+        [Authorize(Roles = "Administrator")]
 
         [HttpPost]
         public async Task<IActionResult> AddRoles(IdentityRole model)
@@ -41,6 +44,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public async Task<IActionResult> ViewRoles(string rolesId)
         {
@@ -59,6 +63,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> ViewRoleOnPost(IdentityRole model)
         {
@@ -78,6 +83,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteRole(IdentityRole model)
         {
             var role = await _roleManager.FindByIdAsync(model.Id);

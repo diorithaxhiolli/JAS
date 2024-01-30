@@ -24,6 +24,7 @@ namespace JAS.Controllers
             _userManager = userManager;
         }
 
+        [Authorize(Roles = "JobSeeker")]
         public async Task<IActionResult> Index()
         {
             var currentUser = await _userManager.GetUserAsync(User);
@@ -35,11 +36,13 @@ namespace JAS.Controllers
             return View(cvList);
         }
 
+        [Authorize(Roles = "JobSeeker")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "JobSeeker")]
         [HttpPost]
         public async Task<IActionResult> AddCVOnPost(CVComposite postModel, IFormFile filePath)
         {
@@ -86,6 +89,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index", "CV");
         }
 
+        [Authorize(Roles = "JobSeeker")]
         [HttpGet]
         public async Task<IActionResult> View(int cvId)
         {
@@ -137,6 +141,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "JobSeeker")]
         [HttpPost]
         public async Task<IActionResult> UpdateCVOnPost(CVComposite model, IFormFile filePath)
         {
@@ -153,6 +158,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "JobSeeker")]
         public async Task<IActionResult> DeleteCV(CVComposite model)
         {
             var isDeleted = await DeleteCVWithRelatedData(model.CV, model.Education, model.Experience);
@@ -165,6 +171,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "JobSeeker")]
         public async Task<Boolean> DeleteCVWithRelatedData(CV cvModel, Education eduModel, Experience expModel)
         {
             var cv = await _dBContext.CV.FindAsync(cvModel.cvId);
@@ -186,6 +193,7 @@ namespace JAS.Controllers
             return true;
         }
 
+        [Authorize(Roles = "JobSeeker")]
         public async Task<Boolean> UpdateCV(CV model, IFormFile filePath)
         {
             if (model == null)
@@ -207,6 +215,8 @@ namespace JAS.Controllers
 
             return true;
         }
+
+        [Authorize(Roles = "JobSeeker")]
         public async Task<Boolean> UpdateEducation(Education model)
         {
             if (model == null)
@@ -225,6 +235,8 @@ namespace JAS.Controllers
 
             return true;
         }
+
+        [Authorize(Roles = "JobSeeker")]
         public async Task<Boolean> UpdateExperience(Experience model)
         {
             if (model == null)
@@ -243,6 +255,7 @@ namespace JAS.Controllers
         }
 
 
+        [Authorize(Roles = "JobSeeker")]
         public async Task<IActionResult> DownloadFile(int cvId)
         {
             var cv = await _dBContext.CV.FirstOrDefaultAsync(c => c.cvId == cvId);
@@ -264,6 +277,7 @@ namespace JAS.Controllers
         }
 
 
+        [Authorize(Roles = "JobSeeker")]
         private async Task<string> SavePDF(IFormFile file)
         {
             if (file != null)

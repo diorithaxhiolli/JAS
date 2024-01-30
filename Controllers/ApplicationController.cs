@@ -47,6 +47,8 @@ namespace JAS.Controllers
             return View(compositeModel);
         }
 
+
+        [Authorize(Roles = "JobSeeker")]
         [HttpPost]
         public async Task<IActionResult> SendApplication(ApplicationComposite model, IFormFile filePath)
         {
@@ -78,11 +80,72 @@ namespace JAS.Controllers
             return RedirectToAction("Index", "Status");
         }
 
+
+        [Authorize(Roles = "JobSeeker")]
+        public async Task<IActionResult> StatusApplication(Guid userId)
+        {
+            var applicationList = await _dBContext.Application
+                .Include(jl => jl.JobListing)
+                    .ThenInclude(jc => jc.JobCategory)
+                .Include(jl => jl.JobListing)
+                    .ThenInclude(co => co.Company)
+                        .ThenInclude(us => us.User)
+                .Include(cv => cv.CV)
+                .Include(st => st.Status)
+                .Include(cl => cl.CoverLetter)
+                .Include(js => js.JobSeeker)
+                    .ThenInclude(u => u.User)
+                .Where(jl => jl.jobSeekerId == userId.ToString())
+                .ToListAsync();
+
+            return View(applicationList);
+        }
+
+        [Authorize(Roles = "JobSeeker")]
+        public async Task<IActionResult> DownloadCV(int cvId)
+        {
+            var cv = await _dBContext.CV.FirstOrDefaultAsync(c => c.cvId == cvId);
+
+            if (cv == null || string.IsNullOrEmpty(cv.filePath))
+            {
+                // Handle the case where the CV with the given ID is not found or file path is empty
+                return NotFound();
+            }
+
+            // Resolve the tilde (~) in the file path
+            var resolvedFilePath = cv.filePath.Replace("~/", string.Empty);
+
+            // Construct the full physical path
+            var filePath = Path.Combine(_env.WebRootPath, resolvedFilePath);
+
+            // Return the file as a downloadable content
+            return PhysicalFile(filePath, "application/pdf", Path.GetFileName(filePath));
+        }
+
+        [Authorize(Roles = "JobSeeker")]
+        public async Task<IActionResult> DownloadCoverLetter(int coverLetterId)
+        {
+            var coverLetter = await _dBContext.CoverLetter.FirstOrDefaultAsync(c => c.coverLetterId == coverLetterId);
+
+            if (coverLetter == null || string.IsNullOrEmpty(coverLetter.filePath))
+            {
+                return NotFound();
+            }
+
+            var resolvedFilePath = coverLetter.filePath.Replace("~/", string.Empty);
+
+            var filePath = Path.Combine(_env.WebRootPath, resolvedFilePath);
+
+            return PhysicalFile(filePath, "application/pdf", Path.GetFileName(filePath));
+        }
+
+        [Authorize(Roles = "JobSeeker")]
         public IActionResult JobApplication()
         {
             return View();
         }
 
+        [Authorize(Roles = "JobSeeker")]
         private async Task<string> SavePDF(IFormFile file)
         {
             if (file != null)

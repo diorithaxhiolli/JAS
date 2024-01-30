@@ -1,5 +1,6 @@
 ﻿using JAS.Areas.Identity.Data;
 using JAS.Models.Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,18 +15,20 @@ namespace JAS.Controllers
             this.jasContext = jasContext;
         }
 
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Index()
         {
             var country = await jasContext.Country.ToListAsync();
             return View(country);
         }
 
+        [Authorize(Roles = "Administrator")]
         public IActionResult AddCountry()
         {
             return View();
         }
 
-        //create
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> AddCountry(Country addUserRequest)
         {
@@ -42,7 +45,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
-        //read
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> ViewCountry(int ID_Country)
         {
             var country = await jasContext.Country.FirstOrDefaultAsync(x => x.countryId == ID_Country);
@@ -55,7 +58,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
-        //update
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> ViewCountryPost(Country model)
         {
@@ -78,7 +81,7 @@ namespace JAS.Controllers
 
 
 
-        //delete
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteCountry(Country model)
         {
             var country = await jasContext.Country.FindAsync(model.countryId);

@@ -4,7 +4,28 @@
     ViewData["Title"] = "Access denied";
 }
 
-<header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">You do not have access to this resource.</p>
-</header>
+
+<div class="p-20">
+</div>
+
+<div class="h-screen justify-center items-center dark:text-darktextcolor p-5">
+    <div class="py-8 px-4 mx-auto my-auto lg:py-16 lg:px-6">
+        <div class="mx-auto max-w-screen-sm text-center">
+            <h1 class="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-purple-500 dark:text-purle-800">403</h1>
+            <p class="mb-4 text-3xl tracking-tight font-bold text-red-500 md:text-4xl dark:text-red-600">Access denied.</p>
+            <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">Log into your account in, which has permission. </p>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    var razorPageUrl = '@Url.Action("Index", "Home")';
+
+    var delay = '1000000';
+
+    setTimeout(function () {
+        window.location.href = razorPageUrl;
+    }, delay);
+</script>

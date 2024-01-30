@@ -17,10 +17,10 @@
     },
     select: function (event, ui) {
         $("#searchInput").val(ui.item.label);
-        $("#ID_City").val(ui.item.value);
+        $("#categoryId").val(ui.item.value);
         $("#searchValue").val($("#searchInput").val());
         return false;
-    }
+    },
 });
 
 function submitForm(event) {

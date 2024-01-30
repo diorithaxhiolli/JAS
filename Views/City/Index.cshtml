@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Cities";
-    Layout = "~/Views/Shared/_LayoutJobSeeker.cshtml";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
 
 <!DOCTYPE html>
@@ -13,11 +13,6 @@
 <body class="bg-background text-textcolor dark:bg-darkbackground dark:text-darktextcolor">
 
 <div class="mx-custom p-4">
-    <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
-                                                                            block mx-5 text-white bg-gradient-to-r from-primary via-primary-dark to-darkprimary hover:bg-darkprimary focus:ring-4 focus:outline-none focus:ring-darkprimary
-                                                                            dark:focus:ring-darkaccent shadow-lg shadow-darkaccent/50 dark:shadow-lg dark:shadow-darkaccent/80 font-medium font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-        <i class="fa-solid fa-plus mr-2"></i>Create City
-    </button>
 
     <div class="relative overflow-x-auto rounded-t-lg mt-5 mx-5
                 border-2 border-accent dark:border-darkaccent shadow-lg shadow-accent/50 hover:shadow-xl hover:shadow-accent/50 dark:hover:shadow-xl dark:shadow-darkaccent/80 dark:hover:shadow-darkaccent/80">
@@ -42,13 +37,11 @@
                         <td class="py-2 px-4">@city.cityId</td>
                         <td class="py-2 px-4">
                             @city.cityName
-                            <br />
-                            @city.countryId
                         </td>
                         <td class="py-2 px-4">
                             <a href="@Url.Action("ViewCity", "City", new { ID_City = city.cityId })" class="text-blue-500 dark:text-blue-300 flex items-center">
                                 <i class="fas fa-pen-to-square mr-1"></i>
-                                View
+                                Edit
                             </a>
                         </td>
                     </tr>

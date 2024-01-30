@@ -6,6 +6,7 @@ using JAS.Models.Domain.CompositeModel;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.CodeAnalysis.CSharp.Formatting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JAS.Controllers
 {
@@ -22,6 +23,7 @@ namespace JAS.Controllers
             this._env = _env;
         }
 
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> Index()
         {
             var currentUser = await userManager.GetUserAsync(User);
@@ -50,6 +52,7 @@ namespace JAS.Controllers
             return View(jobListingComposite);
         }
 
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> Create()
         {
             var categories = jasContext.JobCategory.ToList();
@@ -58,7 +61,8 @@ namespace JAS.Controllers
             return View();
         }
 
-        
+
+        [Authorize(Roles = "Company")]
         [HttpGet]
         public async Task<IActionResult> View(int positionId)
         {
@@ -88,7 +92,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        [Authorize(Roles = "Company")]
         [HttpPost]
         public async Task<IActionResult> UpdateJobListingOnPost(JobListing model)
         {
@@ -107,6 +111,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> AddJobListingOnPost(JobListing model)
         {
             if (model == null)
@@ -131,6 +136,7 @@ namespace JAS.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> ViewApplicationsJob(int positionId)
         {
             if (positionId == null)
@@ -154,8 +160,9 @@ namespace JAS.Controllers
             return View(applicationData);
         }
 
+        [Authorize(Roles = "Company")]
         [HttpGet]
-        public async Task<IActionResult> ViewUserCV(int cvId)
+        public async Task<IActionResult> ViewUserCV(int cvId, int applicationId)
         {
             var status = jasContext.Status.ToList();
             ViewData["Statuses"] = status;
@@ -173,6 +180,8 @@ namespace JAS.Controllers
                 .Where(app => app.cvId == cvId)
                 .FirstOrDefaultAsync();
 
+            ViewBag.appId = applicationId;
+
             if (applicationData == null)
             {
                 return RedirectToAction("Index");
@@ -181,6 +190,7 @@ namespace JAS.Controllers
             return View("ViewUserCV", applicationData);
         }
 
+        [Authorize(Roles = "Company")]
         [HttpPost]
         public async Task<IActionResult> ChangeStatus(int cvId, int statusId, int applicationId)
         {
@@ -194,8 +204,9 @@ namespace JAS.Controllers
             application.statusId = statusId;
             await jasContext.SaveChangesAsync();
 
-            return await ViewUserCV(cvId);
+            return await ViewUserCV(cvId, applicationId);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> ViewJobListing(int positionId)
@@ -204,12 +215,15 @@ namespace JAS.Controllers
                 .Include(jc => jc.JobCategory)
                 .Include(c => c.Company)
                     .ThenInclude(c => c.City)
+                .Include(c => c.Company)
+                    .ThenInclude(c => c.User)
                 .Where(jl => jl.positionId == positionId)
                 .FirstOrDefaultAsync();
 
             return View(jobListingModel);
         }
 
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> DownloadCV(int cvId)
         {
             var cv = await jasContext.CV.FirstOrDefaultAsync(c => c.cvId == cvId);
@@ -230,6 +244,7 @@ namespace JAS.Controllers
             return PhysicalFile(filePath, "application/pdf", Path.GetFileName(filePath));
         }
 
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> DownloadCoverLetter(int coverLetterId)
         {
             var coverLetter = await jasContext.CoverLetter.FirstOrDefaultAsync(c => c.coverLetterId == coverLetterId);
@@ -302,8 +317,6 @@ namespace JAS.Controllers
         }
 
 
-
-        // get category name - provides data per dropdown search
         [HttpGet]
         public IActionResult GetCategoryNames(string searchTerm)
         {

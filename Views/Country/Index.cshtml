@@ -1,5 +1,6 @@
 ﻿@{
-    Layout = "~/Views/Shared/_LayoutJobSeeker.cshtml";
+    ViewData["Title"] = "Countrys";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
 
 <!DOCTYPE html>
@@ -12,11 +13,13 @@
 <body class="bg-background text-textcolor dark:bg-darkbackground dark:text-darktextcolor">
 
     <div class="mx-custom p-4">
-        <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
+        <a asp-action="AddCountry" asp-controller="Country">
+            <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200
                                                                                     block mx-5 text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300
                                                                                     dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-            <i class="fa-solid fa-plus mr-2"></i>Create Country
-        </button>
+                <i class="fa-solid fa-plus mr-2"></i>Create Country
+            </button>
+        </a>
 
         <div class="relative overflow-x-auto rounded-t-lg mt-5 mx-5
                     border-2 border-purple-500 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/50 dark:hover:shadow-xl dark:shadow-purple-800/80 dark:hover:shadow-purple-800/80

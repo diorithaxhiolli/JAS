@@ -29,9 +29,9 @@
                 <div class="col-span-2">
                     <form asp-action="ChangeStatus" method="post">
                         <input type="hidden" name="cvId" value="@Model.CV.cvId" />
-                        <input type="hidden" name="applicationId" value="@Model.applicationId" />
+                        <input type="hidden" name="applicationId" value="@ViewBag.appId" />
                         <select id="countries" name="statusId" asp-for="@Model.Status.statusId" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="" selected disabled>Choose a category</option>
+                            <option value="@Model.Status.statusName" selected disabled>Choose a category</option>
                             @{
                                 foreach (var status in ViewData["Statuses"] as List<Status>)
                                 {
