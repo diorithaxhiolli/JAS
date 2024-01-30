@@ -1,24 +1,37 @@
-﻿
-@{
-    ViewData["Title"] = "Search Result";
-}
+﻿@using JAS.Models.Domain
+@model List<JobListing>
 
 <h1>Search Result</h1>
+
 <container id="resultContainer">
-@if (Model.Count > 0)
-{
-    foreach (var jobListing in Model)
+                   <div class="mt-5">
+                <h1 class="text-4xl font-bold text-textcolor dark:text-darktextcolor text-center">Konkurset</h1>
+                <div class="border-b border-accent mt-2"></div>
+            </div>
+    @if (Model.Count > 0)
     {
-        <div>
-            <h3>@jobListing.title</h3>
-            <p>Category: @jobListing.JobCategory.name</p>
-            <p>Salary: @jobListing.salary</p>
-            <!-- Add other job listing details as needed -->
-        </div>
+            <div class="flex flex-wrap w-full items-center justify-between p-7 gap-4">
+                @foreach(var jobListingModel in Model)
+                {
+                    <div class="transistion ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200">
+                        <a href="@Url.Action("ViewJobListing", "JobListing", new { positionId = jobListingModel.positionId })" class="flex items-center bg-white border border-gray-200 rounded-lg shadow max-w-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                            <div class="flex w-2/5 overflow-hidden">
+                                <img class="object-cover w-full h-60 rounded-s-lg" src="@Url.Content(@jobListingModel.Company.imagePath)" alt="">
+                            </div>
+                            <div class="flex w-3/5 flex-col justify-between p-4 leading-normal overflow-hidden whitespace-nowrap overflow-ellipsis">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white overflow-hidden overflow-ellipsis max-w-44">@jobListingModel.title</h5>
+                                <h5 class="mb-2 text-lg font-semibold tracking-tight text-gray-900 dark:text-white overflow-hidden whitespace-nowrap overflow-ellipsis max-w-40">€ @jobListingModel.salary <span class="font-normal text-gray-700 dark:text-gray-400 ml-3"><i class="text-gray-700 dark:text-gray-400 fa-solid fa-location-dot mr-1"></i>@jobListingModel.Company.City.cityName</span></h5>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 overflow-hidden whitespace-nowrap overflow-ellipsis max-w-40">From <span class="font-semibold">@jobListingModel.Company.name</span></p>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 overflow-hidden whitespace-nowrap overflow-ellipsis max-w-40">@jobListingModel.description</p>
+                                <button type="button" class="text-white transition ease-in-out delay-150 hover:translate-y-1 hover:scale-105 duration-200 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><i class="fa-solid fa-arrow-right text-darktextcolor" style="margin-right: 5px;"></i>View Position</button>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
     }
-}
-else
-{
-    <p>No results found.</p>
-}
+    else
+    {
+        <p>No results found.</p>
+    }
 </container>

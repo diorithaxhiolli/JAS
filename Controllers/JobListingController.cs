@@ -236,39 +236,72 @@ namespace JAS.Controllers
 
             if (coverLetter == null || string.IsNullOrEmpty(coverLetter.filePath))
             {
-                // Handle the case where the CV with the given ID is not found or file path is empty
                 return NotFound();
             }
 
-            // Resolve the tilde (~) in the file path
             var resolvedFilePath = coverLetter.filePath.Replace("~/", string.Empty);
 
-            // Construct the full physical path
             var filePath = Path.Combine(_env.WebRootPath, resolvedFilePath);
 
-            // Return the file as a downloadable content
             return PhysicalFile(filePath, "application/pdf", Path.GetFileName(filePath));
         }
 
-        [HttpGet]
-        public IActionResult SearchJobs(string searchTerm, int? categoryId)
+        public async Task<IActionResult> SearchJobs(int? categoryId)
         {
-            var query = jasContext.JobListing.AsQueryable();
-
-            if (!string.IsNullOrEmpty(searchTerm))
+            if(categoryId == null)
             {
-                query = query.Where(j => j.JobCategory.name.Contains(searchTerm));
+                return RedirectToAction("Oops", "Message");
             }
 
-            if (categoryId.HasValue)
-            {
-                query = query.Where(j => j.categoryId == categoryId);
-            }
+            var jobListings = await jasContext.JobListing
+                .Include(jc => jc.JobCategory)
+                .Include(c => c.Company)
+                    .ThenInclude(c => c.City)
+                .Where(jl => jl.categoryId == categoryId)
+                .Take(100)
+                .ToListAsync();
 
-            var searchResults = query.ToList();
 
-            return View("~/Views/JobListing/SearchResult.cshtml", searchResults);
+            return View("SearchResult", jobListings);
         }
+
+
+        public IActionResult GetSearchValue(string search)
+        {
+            List<JobCategory> allsearch = jasContext.JobCategory
+                .Where(x => x.name.Contains(search))
+                .Select(x => new JobCategory
+                {
+                    categoryId = x.categoryId,
+                    name = x.name
+                })
+                .ToList();
+
+            return Json(allsearch);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetPostSearchValue(string search)
+        {
+            if (string.IsNullOrWhiteSpace(search))
+            {
+                return RedirectToAction("Oops", "Message");
+            }
+
+            var jobCat = await jasContext.JobCategory.FirstOrDefaultAsync(x => x.name.ToLower() == search.ToLower());
+
+            int categoryId;
+
+            if (jobCat != null)
+            {
+                categoryId = jobCat.categoryId;
+                return RedirectToAction("SearchJobs", "JobListing", new { categoryId = jobCat.categoryId});
+            }
+
+            return RedirectToAction("Oops", "Message");
+        }
+
+
 
         // get category name - provides data per dropdown search
         [HttpGet]
@@ -276,12 +309,11 @@ namespace JAS.Controllers
         {
             var categoryNames = jasContext.JobCategory
                 .Where(c => c.name.Contains(searchTerm))
-                .Select(c => c.name)
+                .Select(c => new { label = c.name, value = c.categoryId }) // Return both label and value
                 .ToList();
 
             return Json(categoryNames);
         }
-
 
 
     }
